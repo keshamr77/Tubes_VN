@@ -23,6 +23,7 @@ image b worried = "characters/MC_worried"
 image bg parliament_chamber = im.Scale("backgrounds/parliament_chamber.jpg", 1920, 1080)
 image bg bima_office_sore = im.Scale("backgrounds/bima_office_sore.png", 1920, 1080)
 image bg bima_office_pagi = im.Scale("backgrounds/bima_office_pagi.png", 1920, 1080)
+image bg living_room = im.Scale("backgrounds/living_room.jpg", 1920,1080)
 
 
 # Scene pertama dengan background
@@ -38,20 +39,22 @@ label start:
     # Kembali ke masa kini
     show bg bima_office_pagi with fade
     "Kembali ke masa kini. Bima menatap foto mendiang ayahnya di meja."
+    show b default at Position(xpos=0.3, ypos=2.0) with dissolve
     b "(Ayah, malam itu aku tidak bisa melakukan apa-apa. Tapi sekarang aku punya kesempatan untuk melawan mereka yang mengambil segalanya dari kita.)"
 
     # Scene 2: Kantor Parlemen - Hari Pertama Bima
     scene bg parliament_hall at truecenter with dissolve # Background: kantor parlemen
     "Hari pertama di parlemen. Bima tahu, ini bukan hanya pekerjaan. Ini adalah perjuangan untuk mereka yang tidak memiliki suara."
     asisten "Pak Bima, selamat datang. Rapat pertama Anda akan dimulai dalam satu jam. Semua anggota sudah tidak sabar mendengar ide-ide segar Anda."
+    show b default at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Terima kasih. Saya akan memastikan mereka mendengar apa yang perlu mereka dengar."
 
     # Scene 3: Sidang Parlemen - Idealisme yang Ditantang
     scene bg parliament_chamber at truecenter with dissolve # Background: ruang sidang
-    show b with dissolve
     "Hari pertama Bima sebagai wakil rakyat dimulai dengan sidang pleno. Atmosfer di ruangan itu tegang, penuh pembicaraan tentang rancangan undang-undang yang kontroversial terkait kebijakan tenaga kerja."
     lp "Sebelum kita melanjutkan pembahasan, izinkan saya memperkenalkan anggota baru kita. Bima, dari daerah pemilihan Sumatera Selatan. Anda memiliki waktu untuk memperkenalkan diri dan pandangan Anda. Silakan."
     "Semua mata tertuju pada Bima. Beberapa politisi tampak menilai, yang lain acuh tak acuh."
+    show b default at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Terima kasih atas kesempatan ini. Saya Bima, dan saya merasa terhormat dapat berdiri di sini hari ini. Tapi saya juga tahu, kehormatan ini datang dengan tanggung jawab besar."
     "Beberapa politisi mulai memperhatikan lebih serius."
     b "Sebagai wakil rakyat, tugas utama kita adalah mendengar suara mereka yang memilih kita. Namun, saya tidak bisa mengabaikan kenyataan bahwa ada begitu banyak suara yang tidak terdengar—mereka yang tidak punya kesempatan untuk berbicara di tempat seperti ini."
@@ -74,8 +77,10 @@ label start:
     lp "Baiklah, mari kita lanjutkan ke agenda hari ini: pembahasan mengenai rancangan undang-undang ketenagakerjaan. Ada pendapat dari pihak pendukung?"
     "Seorang politisi berdiri, berbicara dengan penuh percaya diri."
     pe "Rancangan ini penting untuk meningkatkan daya saing tenaga kerja kita di pasar internasional. Fleksibilitas jam kerja dan efisiensi tenaga kerja akan memberikan keuntungan besar bagi ekonomi kita."
+    show b worried at Position(xpos=0.3, ypos=2.0) with dissolve
     b "(Keuntungan ekonomi? Bagaimana dengan nasib para buruh yang jam kerjanya diperpanjang tanpa perlindungan?)"
     
+    show b default at Position(xpos=0.3, ypos=2.0) with dissolve
     menu:
         "Memprotes langsung rancangan tersebut dengan argumen yang tajam":
             b "Maaf, tapi saya tidak bisa mendukung rancangan ini. Apakah kita mempertimbangkan bagaimana fleksibilitas ini akan mempengaruhi para buruh? Mereka sudah bekerja terlalu keras untuk upah yang tidak layak. Menambah jam kerja hanya akan memperburuk keadaan mereka."
@@ -91,6 +96,7 @@ label start:
     
     # Scene lorong parlemen after scene 3
     mp "Pak Bima, Anda berbicara dengan sangat baik tadi. Tidak banyak orang yang berani mempertanyakan kebijakan seperti itu."
+    show b happy at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Terima kasih. Tapi ini baru awal. Masih banyak yang perlu diperjuangkan."
     mp "Saya setuju. Kalau Anda butuh dukungan, saya ada di pihak Anda."
     "Bima mulai mendapatkan sekutu, meskipun perjuangan keadilan masih panjang."
@@ -106,6 +112,7 @@ label start:
     b "Gaji di bawah standar, jam kerja panjang, dan tidak ada jaminan perlindungan bagi pekerja. Bahkan, laporan ini menyebutkan beberapa pekerja dipecat karena mencoba menyuarakan hak mereka. Ini tidak bisa dibiarkan."
     "Bima menghela napas panjang, lalu meraih telepon di mejanya. Dia menghubungi tim konstituennya di daerah asalnya."
 
+    show b default at Position(xpos=0.3, ypos=2.0) with dissolve
     # Diskusi dengan Tim Konstituen
     tk "Halo, Pak Bima. Apa kabar?"
     b "Halo, semuanya baik. Saya baru menerima laporan tentang pabrik di kawasan industri kita yang mengeksploitasi buruh. Apa ini benar? Bisa Anda ceritakan lebih rinci?"
@@ -131,6 +138,7 @@ label start:
     scene bg warehouse with fade  # Background: gudang
     "Bima berjalan melewati lorong sempit menuju sebuah gudang kosong di belakang pabrik, tempat pertemuan akan diadakan. Sekelompok buruh menunggu di sana, wajah mereka menunjukkan kelelahan dan kecemasan."
     
+    show b default at Position(xpos=0.3, ypos=2.0) with dissolve
     # Pertemuan dengan buruh
     b "Terima kasih sudah meluangkan waktu untuk bertemu dengan saya. Saya tahu ini tidak mudah, tapi saya ingin mendengar langsung apa yang kalian alami."
     ba "Pak Bima, terima kasih juga sudah meluangkan waktu untuk bertemu dengan kami. Kami tidak tahu harus bicara ke siapa lagi. Kami sudah mencoba menyampaikan keluhan, tapi tidak ada yang peduli."
@@ -167,6 +175,7 @@ label start:
 
     # Narasi penutup untuk Arc 1
     scene bg bima_office_sore with fade
+    show b happy at Position(xpos=0.3, ypos=2.0) with dissolve
     b "(Ini baru awal. Masalah ini lebih besar dari yang aku bayangkan. Tapi aku sudah siap untuk melangkah lebih jauh.)"
     
     return
