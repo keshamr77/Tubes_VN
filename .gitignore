@@ -1,0 +1,49 @@
+ .vscode/
+
+# Ignore cache dan compiled files
+*.rpyc
+*.rpa
+*.rpymc
+
+# Ignore log files
+*.log
+
+# Ignore persistent saves
+*.save
+saves/
+
+# Ignore game progress files
+renpy/
+cache/
+log.txt
+
+# Ignore editor configurations
+.vscode/
+.idea/
+
+# Ignore Ren'Py SDK folder (jika ada)
+renpy-*/  # Misalnya, renpy-8.3.3-sdk/
+
+# Ignore Python environment files
+venv/
+env/
+*.pyc
+__pycache__/
+
+# Ignore backup files
+*.bak
+*.tmp
+
+# Ignore cache files
+Wening/game/cache/
+log.txt
+
+# Ignore save files
+Wening/game/saves/
+
+# Ignore specific files
+Wening/game/cache/shaders.txt
+game/saves/navigation.json
+game/saves/persistent
+log.txt
+
