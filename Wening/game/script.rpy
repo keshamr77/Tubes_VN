@@ -16,25 +16,40 @@ define be = Character("Buruh E", color="#cc6666")
 #Character expressions
 image b default = "characters/MC_Default.png"
 image b happy = "characters/MC_Happy.png"
-image b angry = "characters/MC_angry"
-image b worried = "characters/MC_worried"
+image b angry = "characters/MC_angry.png"
+image b worried = "characters/MC_worried.png"
+image ibu = "characters/Ibu.png"
+image ba silhouette =  "characters/Buruh_Telfon.png"
+image bb rame = "characters/Buruh_Ramai.png"
 
 # Background Definitions'
 image bg parliament_chamber = im.Scale("backgrounds/parliament_chamber.jpg", 1920, 1080)
+image bg parliament_hall = im.Scale("backgrounds/parliament_hall.png", 1920, 1080)
 image bg bima_office_sore = im.Scale("backgrounds/bima_office_sore.png", 1920, 1080)
 image bg bima_office_pagi = im.Scale("backgrounds/bima_office_pagi.png", 1920, 1080)
+image bg bima_office_malam = im.Scale("backgrounds/bima_office_malam.jpg", 1920, 1080)
 image bg living_room = im.Scale("backgrounds/living_room.jpg", 1920,1080)
+image bg pabrik= im.Scale("backgrounds/pabrik.jpg", 1920,1080)
+image bg gudang= im.Scale("backgrounds/gudang.jpg", 1920,1080)
 
+# Transformations 
+transform zoomed_for_silhoutte:
+    xpos 0.5
+    ypos 0.3
+    zoom 2.8
 
 # Scene pertama dengan background
 label start:
-
+    $ renpy.music.stop()
+    
     # Scene 1: Rumah Bima - Refleksi Masa Lalu
     scene bg living_room with fade  # Background: ruang tamu
     "Di malam yang tenang, Bima duduk di depan meja. Pikirannya melayang ke masa lalu—sebuah masa penuh luka dan kehilangan yang membentuk dirinya hingga hari ini."
+    show ibu at zoomed_for_silhoutte with dissolve
     ibu "Cepat, Bima! Kita harus keluar sebelum mereka datang!"
     b "Tapi Ibu, kenapa kita harus pergi? Ini rumah kita!"
     "Bima muda tidak pernah melupakan malam itu—malam di mana keluarganya kehilangan segalanya karena keputusan segelintir orang di atas."
+    hide ibu
     
     # Kembali ke masa kini
     show bg bima_office_pagi with fade
@@ -52,7 +67,7 @@ label start:
     # Scene 3: Sidang Parlemen - Idealisme yang Ditantang
     scene bg parliament_chamber at truecenter with dissolve # Background: ruang sidang
     "Hari pertama Bima sebagai wakil rakyat dimulai dengan sidang pleno. Atmosfer di ruangan itu tegang, penuh pembicaraan tentang rancangan undang-undang yang kontroversial terkait kebijakan tenaga kerja."
-    lp "Sebelum kita melanjutkan pembahasan, izinkan saya memperkenalkan anggota baru kita. Bima, dari daerah pemilihan Sumatera Selatan. Anda memiliki waktu untuk memperkenalkan diri dan pandangan Anda. Silakan."
+    lp "Sebelum kita melanjutkan pembahasan, izinkan saya memperkenalkan anggota baru kita. Bima, dari daerah pemilihan Jawa Timur. Anda memiliki waktu untuk memperkenalkan diri dan pandangan Anda. Silakan."
     "Semua mata tertuju pada Bima. Beberapa politisi tampak menilai, yang lain acuh tak acuh."
     show b default at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Terima kasih atas kesempatan ini. Saya Bima, dan saya merasa terhormat dapat berdiri di sini hari ini. Tapi saya juga tahu, kehormatan ini datang dengan tanggung jawab besar."
@@ -83,6 +98,7 @@ label start:
     show b default at Position(xpos=0.3, ypos=2.0) with dissolve
     menu:
         "Memprotes langsung rancangan tersebut dengan argumen yang tajam":
+            show b angry at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Maaf, tapi saya tidak bisa mendukung rancangan ini. Apakah kita mempertimbangkan bagaimana fleksibilitas ini akan mempengaruhi para buruh? Mereka sudah bekerja terlalu keras untuk upah yang tidak layak. Menambah jam kerja hanya akan memperburuk keadaan mereka."
             ps "Saudara Bima, ini bukan hanya tentang buruh. Ini tentang ekonomi negara kita. Jika buruh tidak kompetitif, siapa yang akan berinvestasi di sini?"
             b "Dan apa gunanya investasi jika masyarakat yang kita wakili hidup dalam penderitaan? Prioritas kita harus selalu rakyat, bukan angka di laporan ekonomi."
@@ -92,9 +108,10 @@ label start:
             ps "Hmm, tentu saja, ada regulasi tambahan yang akan kita bahas nanti. Tapi fokus kita sekarang adalah pada daya saing."
             b "Kalau begitu, saya berharap pembahasan itu menjadi prioritas. Daya saing tidak ada artinya jika tenaga kerja kita diperlakukan seperti mesin tanpa batas."
 
-    "Pendekatan Bima yang tenang tetapi tajam menarik perhatian lebih banyak anggota parlemen. Beberapa mulai mempertimbangkan ulang pandangan mereka."
+            "Pendekatan Bima yang tenang tetapi tajam menarik perhatian lebih banyak anggota parlemen. Beberapa mulai mempertimbangkan ulang pandangan mereka."
     
     # Scene lorong parlemen after scene 3
+    scene bg parliament_hall at truecenter with dissolve # Background: kantor parlemen
     mp "Pak Bima, Anda berbicara dengan sangat baik tadi. Tidak banyak orang yang berani mempertanyakan kebijakan seperti itu."
     show b happy at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Terima kasih. Tapi ini baru awal. Masih banyak yang perlu diperjuangkan."
@@ -121,6 +138,8 @@ label start:
 
     "Dengan bantuan timnya di daerah, Bima akhirnya berhasil menjalin kontak dengan salah satu buruh yang berani berbicara."
     # Sesi telepon dengan buruh"
+    show ba silhouette at Position(xpos=0.7) with dissolve
+
     ba "Pak Bima, terima kasih sudah meluangkan waktu untuk kami. Saya bekerja di pabrik itu hampir 10 tahun. Belakangan ini, kondisi kami semakin buruk. Jam kerja bertambah, tapi gaji tetap kecil. Beberapa teman saya bahkan dipecat setelah mencoba mengajukan protes."
     b "Saya mendengar masalah ini dari laporan. Tapi saya ingin memastikan, apa Anda memiliki bukti, atau ada orang lain yang bisa mendukung cerita ini?"
     ba "Kami punya dokumen slip gaji dan daftar jam kerja yang tidak sesuai dengan kontrak. Tapi kalau kami ketahuan, risikonya terlalu besar. Tolong bantu kami, Pak."
@@ -131,16 +150,17 @@ label start:
     b "(Sistem ini cacat, dan aku tidak bisa memperbaikinya hanya dari balik meja. Aku harus melihat langsung, mendengar langsung, dan berjuang bersama mereka.)"
     
     # Scene 5: Pabrik Buruh - Investigasi Awal
-    scene bg industrial_area with fade  # Background: kawasan industri
+    scene bg pabrik with fade  
     "Dengan bantuan tim konstituennya, Bima berhasil mengatur pertemuan rahasia dengan beberapa buruh pabrik. Meski pertemuan ini sederhana, bagi para buruh, ini adalah momen penuh harapan."
 
     # Perjalanan menuju gudang tempat pertemuan
-    scene bg warehouse with fade  # Background: gudang
+    scene bg gudang with fade  
     "Bima berjalan melewati lorong sempit menuju sebuah gudang kosong di belakang pabrik, tempat pertemuan akan diadakan. Sekelompok buruh menunggu di sana, wajah mereka menunjukkan kelelahan dan kecemasan."
     
     show b default at Position(xpos=0.3, ypos=2.0) with dissolve
     # Pertemuan dengan buruh
     b "Terima kasih sudah meluangkan waktu untuk bertemu dengan saya. Saya tahu ini tidak mudah, tapi saya ingin mendengar langsung apa yang kalian alami."
+    show bb rame with dissolve
     ba "Pak Bima, terima kasih juga sudah meluangkan waktu untuk bertemu dengan kami. Kami tidak tahu harus bicara ke siapa lagi. Kami sudah mencoba menyampaikan keluhan, tapi tidak ada yang peduli."
     bb "Semakin lama, kondisi kerja kami makin buruk. Jam kerja ditambah tanpa pemberitahuan, tapi gaji tetap kecil. Mereka juga mulai memotong tunjangan kesehatan."
     b "Saya sudah membaca laporan kalian, tapi saya ingin mendengar lebih rinci. Apa ada bukti yang bisa membantu kita memperkuat argumen ini? Dokumen atau catatan yang menunjukkan pelanggaran mereka?"
@@ -174,7 +194,7 @@ label start:
     "Malam itu, Bima meninggalkan kawasan pabrik dengan membawa dokumen dan kesaksian buruh. Di pikirannya, dia tahu ini hanya awal dari perjuangan yang panjang. Tapi dia juga tahu, setiap langkah kecil membawa harapan untuk perubahan."
 
     # Narasi penutup untuk Arc 1
-    scene bg bima_office_sore with fade
+    scene bg bima_office_malam with fade
     show b happy at Position(xpos=0.3, ypos=2.0) with dissolve
     b "(Ini baru awal. Masalah ini lebih besar dari yang aku bayangkan. Tapi aku sudah siap untuk melangkah lebih jauh.)"
     
