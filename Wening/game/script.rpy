@@ -17,6 +17,11 @@ define kb = Character("Kolega B", color="#1ea5f9fc")
 define pk = Character("Pejabat Korup", color="#cc6666")
 define ah = Character("Aktivis HAM", color="#abff4b")
 define pdk = Character("Politisi Pendukung Kebijakan",color="#6666cc"))
+define va = Characters("Asisten", color="#9966cc")
+define eb = Characters("Pengusaha Tamak", color="#cc6666")
+define h = Characters("Hardi",color="#cc6666")
+define wi = Characters("Wartawan Independen", color="#f94ef3")
+define mp = Characters("Mantan Pekerja", color="#ffcc00")
 
 #Character expressions
 image b default = "characters/MC_Default.png"
@@ -36,6 +41,8 @@ image bg bima_office_malam = im.Scale("backgrounds/bima_office_malam.jpg", 1920,
 image bg living_room = im.Scale("backgrounds/living_room.jpg", 1920,1080)
 image bg pabrik= im.Scale("backgrounds/pabrik.jpg", 1920,1080)
 image bg gudang= im.Scale("backgrounds/gudang.jpg", 1920,1080)
+image bg bussiness_office = im.Scale("backgrounds/kantor_pengusaha.png", 1920, 1080)
+image bg restaurant = im.Scale("backgrounds/restoran.png", 1920,1080)
 
 # Transformations 
 transform zoomed_for_silhoutte:
@@ -302,6 +309,228 @@ label start:
     "Dengan bukti yang kuat dan dukungan yang mulai tumbuh, Bima harus bersiap menghadapi langkah selanjutnya. Lawannya, pejabat korup dan pengusaha besar, pasti akan mencoba membalas serangan ini. Namun, Bima tahu, perjuangannya baru dimulai."
 
     # Scene 3 : Munculnya Pengusaha Tamak
+    scene bg bussiness_office with fade
+    va "Pak, Anda mungkin ingin melihat ini. Anggota parlemen baru, Bima, baru saja mempresentasikan bukti tentang pelanggaran di pabrik Anda dalam sidang tadi."
+    eb "Bima, ya? Anak baru yang penuh idealisme itu? Aku sudah mendengar tentangnya. Dia terlalu bersemangat untuk kebaikannya sendiri."
+    va "Bukti yang dia tunjukkan cukup kuat, Pak. Jika ini terus berlanjut, reputasi Anda bisa terancam, dan kebijakan kita mungkin akan diblokir."
+    eb "Hmph, aku tidak sampai di sini dengan membiarkan bocah seperti dia menghancurkan semuanya. Kita lihat apakah dia tetap idealis setelah diajak bicara. Hubungi orang-orang kita di parlemen dan atur pertemuan dengannya."
+    "Pengusaha itu tahu bahwa mengabaikan ancaman seperti Bima bisa berbahaya. Dia memutuskan untuk mengambil langkah langsung untuk mengontrol situasi."
+
+    scene bg bima_office_malam with fade
+    b "Halo, ini Bima."
+    va "Pak Bima, nama saya Indra. Saya asisten dari Pak Hardi, salah satu pemilik pabrik di kawasan industri yang Anda investigasi. Bos saya ingin bertemu dengan Anda untuk mendiskusikan laporan Anda."
+    b "Pak Hardi? Saya tidak menyangka dia akan merespons secepat ini."
+    va "Pak Hardi merasa bahwa ada kesalahpahaman yang perlu diluruskan. Dia ingin bertemu di kantornya besok malam. Ini akan menjadi pertemuan pribadi dan informal."
     
+    menu :
+        "Menerima undangan untuk bertemu langsung." :
+            b "Baik, saya akan datang. Tapi saya harap ini adalah diskusi terbuka dan jujur. Jika ada sesuatu yang perlu dijelaskan, saya ingin mendengarnya langsung."
+            va "Tentu saja, Pak. Bos saya sangat menghormati posisi Anda."
+
+        "Menolak bertemu dan meminta semua komunikasi dilakukan secara resmi." :
+            b "Terima kasih atas undangannya, tapi saya rasa semua diskusi tentang isu ini harus dilakukan secara resmi. Saya tidak ingin ada yang disalahartikan."
+            va "Saya mengerti, Pak. Tapi ini adalah kesempatan baik untuk menyelesaikan kesalahpahaman sebelum masalah ini menjadi lebih besar."
+            b "Saya akan tetap pada pendirian saya. Jika Pak Hardi ingin berbicara, dia bisa menghadapi saya di parlemen atau melalui jalur resmi lainnya."
+
+    scene bg bussiness_office with fade
+    h "Pak Bima, pertama-tama, saya ingin mengucapkan terima kasih atas waktu Anda. Tidak banyak anggota parlemen yang mau repot-repot mendengar langsung dari pelaku usaha seperti saya."
+    b "Terima kasih atas undangannya, Pak. Saya di sini untuk memastikan bahwa kebenaran muncul dan keadilan ditegakkan. Saya harap diskusi ini bisa bermanfaat."
+    h "Ah, keadilan, kata yang indah. Tapi, Anda harus tahu bahwa keadilan sering kali bersifat relatif, tergantung dari mana Anda melihatnya. Dunia ini penuh nuansa, Pak Bima, bukan hitam putih seperti yang sering digambarkan."
+
+    menu :
+        "Tetap sopan dan mendengarkan argumen Hardi." :
+            b "Saya setuju bahwa dunia tidak selalu hitam dan putih, Pak. Namun, jika kita membiarkan prinsip keadilan menjadi terlalu fleksibel, kita berisiko mengabaikan mereka yang paling rentan."
+            h "Pernyataan yang bagus. Tapi izinkan saya bertanya: apa Anda tahu bagaimana sulitnya menjalankan bisnis di negeri ini? Pajak yang tinggi, regulasi yang tumpang tindih, tekanan dari investor. Semua itu memaksa pengusaha seperti saya untuk membuat keputusan yang, terkadang, tidak ideal."
+            b "Keputusan tidak ideal yang Anda maksud, apakah itu termasuk pemotongan gaji buruh dan pelanggaran jam kerja?"
+            h "Ah, saya lihat Anda datang dengan membawa tuduhan berat. Tapi percayalah, masalah ini sering kali disebabkan oleh manajemen di lapangan, bukan kebijakan saya. Saya tidak pernah berniat merugikan pekerja saya."
+            b "Kalau begitu, saya harap Anda siap bekerja sama untuk memperbaiki masalah ini. Para buruh Anda berhak mendapatkan keadilan."
+        
+        "Langsung mempertanyakan integritas Hardi." :
+            b "Relatif atau tidak, keadilan tetaplah keadilan, Pak. Apa yang terjadi di pabrik Anda adalah pelanggaran nyata terhadap hukum dan hak asasi manusia. Jika Anda tahu tentang ini, Anda seharusnya bertindak lebih cepat."
+            h "Hati-hati dengan tuduhan Anda, Pak Bima. Saya menghormati posisi Anda, tetapi saya tidak akan menerima fitnah tanpa dasar."
+            b "Ini bukan fitnah. Saya punya bukti yang menunjukkan pemotongan gaji ilegal, pelanggaran jam kerja, dan kondisi kerja yang tidak aman. Semua ini terjadi di pabrik Anda."
+            h "Kalau begitu, mari kita selidiki bersama. Saya akan membentuk tim internal untuk menyelesaikan ini. Tapi, Anda juga harus memahami bahwa kesalahan seperti ini sering kali berasal dari manajemen tingkat bawah."
+            b "Saya akan menunggu hasil investigasi Anda, tapi saya tidak akan tinggal diam jika masalah ini tidak segera ditangani."
+    
+    h "Pak Bima, izinkan saya berbicara jujur. Anda adalah orang baru di dunia politik, penuh dengan semangat dan idealisme. Itu bagus. Tapi Anda juga harus belajar bahwa dunia ini tidak berjalan hanya dengan moral. Kadang kita harus berkompromi."
+
+    menu :
+        "Menyatakan bahwa prinsip lebih penting daripada kompromi." :
+            b "Mungkin Anda benar bahwa kompromi penting dalam beberapa hal. Tapi untuk pelanggaran hak asasi manusia, saya tidak akan pernah berkompromi. Keadilan adalah hal yang tidak bisa ditawar."
+            h "Pendekatan seperti itu mungkin ideal, tapi tidak realistis. Jika Anda terus bertahan dengan pandangan itu, Anda akan menghadapi lebih banyak musuh daripada teman di dunia ini."
+            b "Kalau mempertahankan prinsip membuat saya punya lebih banyak musuh, maka itu risiko yang saya terima. Lebih baik saya kalah dengan integritas daripada menang dengan mengkhianati rakyat."
+        
+        "Mengakui bahwa kompromi kadang diperlukan, tetapi tidak untuk melanggar hak asasi." :
+            b "Saya paham bahwa kompromi kadang diperlukan, Pak. Tapi saya tidak percaya bahwa kompromi bisa menjadi alasan untuk melanggar hak asasi manusia. Ada batasan yang tidak boleh dilanggar."
+            h "Batasan, ya? Kalau begitu, izinkan saya menanyakan ini: apa batasan Anda? Apa Anda siap kehilangan dukungan politik hanya karena Anda tidak mau sedikit melonggarkan prinsip Anda?"
+            b "Kalau prinsip saya harus dilonggarkan untuk mendukung ketidakadilan, maka saya lebih baik kehilangan dukungan itu."
+    
+    h "Pak Bima, izinkan saya memberi saran. Jika Anda terus maju seperti ini, Anda tidak hanya melawan saya. Anda melawan sistem. Apakah Anda yakin siap untuk itu?"
+
+    menu :
+        "Menghadapi ancaman Hardi dengan tegas." :
+            b "Kalau memperjuangkan rakyat berarti melawan sistem, maka itu yang akan saya lakukan. Saya tidak takut pada ancaman Anda, Pak Hardi."
+            h "Baiklah, kita lihat sampai kapan idealisme Anda bisa bertahan. Tapi jangan bilang saya tidak memperingatkan Anda."
+
+        "Memanfaatkan situasi untuk mendapatkan lebih banyak informasi." :
+            b "Saya paham risikonya, Pak. Tapi saya ingin tahu lebih banyak. Siapa saja yang terlibat dalam sistem ini? Jika saya mengerti, mungkin kita bisa mencari jalan keluar bersama."
+            h "Saya suka pendekatan Anda. Tapi saya tidak begitu percaya pada niat Anda. Mari kita lihat apakah tindakan Anda sesuai dengan kata-kata Anda."
+    
+    "Pertemuan itu berakhir dengan ketegangan yang belum terselesaikan. Bima meninggalkan kantor Hardi dengan tekad yang semakin kuat, sementara Hardi merencanakan langkah balasan untuk menghentikannya. Perjuangan ini baru dimulai."
+
+    # Scene 4 : Aliansi Kegelapan - Penyatuan Pengusaha Tamak dan Pejabat Korup
+    scene bg restaurant with fade
+    h "Pak Herman, akhirnya Anda datang juga. Saya kira Anda terlalu sibuk untuk urusan kecil seperti ini."
+    pk "Urusan kecil? Pak Hardi, masalah ini jauh dari kecil. Anak muda itu, Bima, sudah mulai mengguncang fondasi kita. Saya rasa kita berdua tahu dia tidak bisa dibiarkan."
+    h "Betul sekali. Saya sudah mendengar tentang presentasinya di parlemen. Dia membawa bukti, bahkan menyebut nama saya secara tidak langsung. Ini tidak bisa dibiarkan berlanjut."
+    # Menyusun permasalahan bersama
+    pk "Dia memang berani, saya beri dia itu. Tapi keberanian tidak akan cukup di dunia ini. Masalahnya, keberanian itu mulai mengganggu kepentingan kita. Jika bukti yang dia punya menyebar, reputasi saya dan bisnis Anda akan hancur."
+    h "Dan tidak hanya reputasi. Dia juga bisa menarik perhatian pihak berwenang. Saya tidak mau ada aparat datang ke pabrik saya hanya karena anak baru ini tidak tahu tempatnya."
+    pk "Jadi, apa rencana Anda? Anda ingin saya menekan dia di parlemen?"
+    h "Itu langkah awal, tapi tidak cukup. Kita perlu menghabisinya secara menyeluruh, baik dari sisi politik maupun publik."
+    pk "Itu tidak mudah, Pak Hardi. Anak itu punya integritas. Dia tidak akan takut dengan tekanan biasa. Kita butuh sesuatu yang lebih kuat."
+    # Rencana mengerikan : menyatukan kekuatan
+    h "Integritas tidak akan berarti jika dia kehilangan kredibilitas. Kita rusak reputasinya. Saya punya media di bawah kendali saya. Kita bisa menciptakan narasi yang menggambarkan dia sebagai penghasut buruh yang tidak bertanggung jawab."
+    pk "Itu langkah yang bagus. Saya juga bisa memastikan dia kehilangan pengaruh di parlemen. Saya akan mengatur agar proposalnya dipermainkan di komite, sehingga dia terlihat tidak kompeten."
+    h "Kita juga bisa menargetkan buruh-buruh yang bekerja sama dengannya. Saya akan memberi peringatan kepada mereka melalui tim saya di pabrik. Jika mereka terus bicara, mereka kehilangan pekerjaan mereka."
+    pk "Bagus, tapi itu baru permulaan. Kita juga perlu mendorong tekanan pribadi. Jika kita bisa menggali masa lalunya atau kelemahan yang bisa dimanfaatkan, dia tidak akan punya tempat untuk lari."
+    h "Saya suka cara Anda berpikir, Pak Herman. Apa Anda punya tim yang bisa melakukan pekerjaan itu?"
+    pk "Saya punya orang-orang yang sangat berbakat untuk hal seperti itu. Tapi ingat, ini harus dilakukan dengan sangat hati-hati. Jika kita terlalu agresif, dia bisa mendapatkan simpati dari publik."
+    #Dialog yang Menunjukkan Ketegangan Antagonis
+    h "Publik? Publik itu mudah dipengaruhi. Kalau kita kontrol media dengan baik, kita bisa membuatnya terlihat sebagai musuh ekonomi negara. Orang akan percaya apa pun yang kita sajikan."
+    pk "Jangan terlalu meremehkan dia. Anak itu pintar. Dia tahu bagaimana memanfaatkan simpati rakyat kecil. Jika kita tidak hati-hati, dia bisa membalikkan semuanya melawan kita."
+    h "Saya sudah berurusan dengan orang-orang seperti dia sebelumnya. Mereka semua punya batas. Tekanan yang cukup akan membuatnya menyerah atau kehilangan dukungan."
+    pk "Baiklah, kita mulai dari sini. Anda kendalikan narasi publik, dan saya akan urus sisi politiknya. Tapi saya butuh jaminan bahwa bisnis Anda tidak akan terlibat skandal lebih besar. Saya tidak ingin nama saya tercemar karena masalah Anda."
+    h "Jaminan? Pak Herman, bisnis saya adalah yang menjaga ekonomi daerah Anda tetap hidup. Anda tidak akan punya masalah selama saya tetap bisa menjalankan operasi saya tanpa gangguan."
+    # Rencana Final
+    pk "Kalau begitu, kita sepakat. Kita pastikan anak itu kehilangan dukungan, kredibilitas, dan kekuatan. Ketika semua ini selesai, dia tidak akan punya apa-apa lagi."
+    h "Untuk kerja sama yang sukses. Saya akan pastikan anak itu menyesali keputusannya melawan kita."
+    pk "Kita lihat siapa yang bertahan sampai akhir. Saya akan segera memulai langkah pertama saya di parlemen."
+
+    "Malam itu, aliansi gelap terbentuk. Hardi dan Herman, dua orang dengan kekuasaan besar, menyatukan kekuatan mereka untuk menjatuhkan Bima. Tetapi mereka tidak tahu bahwa Bima telah mempersiapkan langkah balasannya sendiri."
+
+    # Scene 5 : Kekalahan Bima di Ruang Parlemen
+    scene bg parliament_chamber with dissolve
+    "Setelah berhari-hari mengumpulkan bukti dan mengatur strategi, Bima akhirnya memiliki kesempatan untuk mempresentasikan kasusnya di depan parlemen. Namun, di balik layar, musuh-musuhnya telah merencanakan segalanya untuk menjatuhkannya."
+
+    # Bima Memulai Presentasi
+    b "Rekan-rekan sekalian, hari ini saya akan mempresentasikan bukti yang menunjukkan pelanggaran berat terhadap hak buruh di beberapa pabrik besar, termasuk yang dimiliki oleh Pak Hardi, yang juga hadir di sini."
+    "Suasana ruangan mulai riuh. Beberapa anggota parlemen tampak terkejut, sementara lainnya berbicara dalam bisikan."
+    b "Bukti ini mencakup laporan pemotongan gaji, jam kerja yang melanggar hukum, dan kondisi kerja yang tidak manusiawi. Saya juga memiliki kesaksian dari beberapa buruh yang siap bersaksi jika diperlukan."
+    "Bima menyerahkan salinan dokumen kepada Ketua Sidang, yang mulai membacanya dengan raut serius."
+
+    # Pejabat Korup Menyerang dengan Strategi Politik
+    pk "Terima kasih, Pak Bima, atas presentasi Anda. Tapi izinkan saya bertanya, apakah Anda sudah memastikan keabsahan bukti-bukti ini? Saya melihat ada beberapa kesaksian anonim di sini. Apa ini tidak membuat bukti Anda diragukan?"
+    b "Semua bukti ini telah diverifikasi oleh tim saya. Kesaksian anonim diberikan untuk melindungi buruh dari ancaman yang sangat nyata."
+    pk "Ancaman? Atau mungkin mereka takut karena mereka tahu informasi ini tidak sepenuhnya benar? Kita harus berhati-hati dengan klaim seperti ini, terutama jika bisa merusak reputasi pengusaha yang telah memberikan banyak kontribusi untuk negara."
+
+    menu :
+        "Menjawab dengan tenang dan berfokus pada data." :
+            b "Saya memahami kekhawatiran Anda, Pak Herman. Tapi data ini tidak hanya berdasarkan kesaksian. Kami memiliki catatan jam kerja, slip gaji, dan foto-foto kondisi kerja di lapangan yang mendukung temuan kami."
+            pk "Itu menarik, tapi kita harus melihat semua ini dengan skeptis. Tidak ada jaminan bahwa data ini tidak dimanipulasi oleh pihak-pihak yang memiliki agenda politik."
+            "Pendekatan tenang Bima tidak cukup untuk menghentikan keraguan yang telah ditanamkan oleh Pejabat Korup. Beberapa anggota parlemen mulai terlihat ragu."
+        
+        "Langsung menyerang balik dengan mempertanyakan integritas Pejabat Korup." :
+            b "Anda berbicara tentang reputasi, Pak Herman. Tapi izinkan saya bertanya, apakah reputasi Anda juga terlibat di balik pelanggaran ini? Karena saya punya alasan untuk percaya bahwa hubungan Anda dengan Pak Hardi lebih dari sekadar profesional."
+            pk "Hati-hati dengan kata-kata Anda, Pak Bima. Tuduhan tanpa bukti hanya akan merusak kredibilitas Anda sendiri."
+            "Serangan Bima berhasil memancing reaksi keras dari Pejabat Korup, tetapi juga membuat suasana semakin panas. Beberapa anggota parlemen mulai merasa tidak nyaman dengan eskalasi ini."
+
+    # Pengusaha Tamak Memutar Balikkan Narasi
+    h "Saya menghormati upaya Pak Bima untuk membela buruh, tapi izinkan saya mengatakan bahwa tuduhan ini sangat tidak adil. Sebagai pengusaha, saya selalu memprioritaskan kesejahteraan pekerja saya."
+    b "Jika itu benar, bagaimana Anda menjelaskan bukti pemotongan gaji dan pelanggaran jam kerja di pabrik Anda?"
+    h "Bukti itu? Saya tidak tahu dari mana Anda mendapatkannya, tapi saya yakin itu adalah laporan yang salah atau dimanipulasi oleh pihak-pihak yang ingin merusak nama baik perusahaan saya."
+
+    menu :
+        "Mencoba menekan Hardi dengan menunjukkan lebih banyak bukti." :
+            b "Ini bukan hanya laporan. Ini adalah slip gaji yang menunjukkan pemotongan langsung. Ini adalah catatan jam kerja yang melanggar undang-undang ketenagakerjaan."
+            h "Semua itu bisa saja dipalsukan, Pak Bima. Dan saya tidak akan tinggal diam melihat nama saya dicemarkan seperti ini!"
+            "Serangan balik Hardi, didukung oleh keraguan yang ditanamkan oleh Pejabat Korup, membuat banyak anggota parlemen mulai meragukan keabsahan data Bima."
+
+        "Meminta buruh untuk berbicara langsung sebagai saksi." :
+            b "Saya... saya ingin mengatakan bahwa semua yang dikatakan Pak Bima itu benar. Kami sering dipaksa bekerja melebihi batas, dan gaji kami dipotong tanpa alasan."
+            h "Apa yang dikatakan buruh ini tidak mewakili mayoritas pekerja saya. Dia hanya satu dari ribuan. Dan bagaimana kita bisa tahu bahwa dia tidak dimanipulasi oleh pihak luar?"
+            "Kehadiran buruh sebagai saksi tidak cukup untuk melawan narasi kuat yang dibangun oleh Hardi dan Pejabat Korup. Dukungan untuk Bima semakin melemah."
+    
+    # Kekalahan Bima
+    lp "Karena kurangnya kejelasan dan untuk menjaga keadilan, kami akan menunda keputusan ini sampai investigasi resmi dilakukan. Sidang selesai."
+    "Keputusan itu merupakan pukulan berat bagi Bima. Meskipun ia telah memberikan bukti yang kuat, propaganda dan pengaruh antagonis membuatnya terlihat lemah dan tidak efektif."
+
+    "Di ruang sidang yang kosong, Bima duduk sendirian, menatap dokumen yang telah ia persiapkan dengan susah payah. Kekalahan ini bukan hanya tentang dirinya, tapi tentang rakyat kecil yang bergantung pada perjuangannya. Namun, di tengah kegelapan, ia bersumpah untuk kembali lebih kuat."
+
+    # SCENE 6 : Bangkit dari Kekalahan - Pencarian Bukti Kegiatan Ilegal
+    scene bg bima_office_malam with dissolve
+    "Setelah kekalahan di parlemen, Bima merenung. Kekuasaan dan kelicikan musuh-musuhnya telah membuat perjuangannya terlihat sia-sia. Namun, di tengah kegelapan itu, ia menyadari satu hal: untuk melawan sistem yang korup, ia membutuhkan bukti yang tak terbantahkan, sesuatu yang tidak bisa disangkal oleh siapa pun."
+
+    # Diskusi dengan Tim Pendukung
+    ah "Pak Bima, saya tahu kekalahan ini sulit diterima. Tapi kita masih punya peluang. Jika kita bisa menemukan sesuatu yang lebih besar, sesuatu yang benar-benar mengejutkan, mereka tidak akan bisa menghindar lagi."
+    b "Kita butuh bukti yang tidak bisa dibantah. Bukan hanya soal pelanggaran buruh, tapi sesuatu yang mengungkap korupsi dan kejahatan mereka yang sebenarnya."
+    wi "Saya dengar ada desas-desus tentang aktivitas ilegal di salah satu pabrik milik Hardi. Beberapa mantan pekerja mengatakan bahwa ada aliran uang gelap dan perdagangan ilegal yang melibatkan perusahaan itu."
+    b "Jika itu benar, maka ini adalah kunci kita. Tapi kita harus bertindak hati-hati. Jika mereka tahu kita menyelidiki ini, mereka tidak akan segan-segan menyerang balik."
+    ba "Saya punya kenalan yang dulu bekerja di pabrik itu. Dia mungkin tahu sesuatu. Tapi dia sangat takut untuk berbicara."
+    b "Kalau begitu, kita temui dia. Kita yakinkan bahwa dia akan aman, dan suara dia bisa membawa perubahan besar."
+
+    # Investigasi Awal
+    scene bg pabrik_malam with dissolve
+    mp "Pak Bima, saya tidak tahu kenapa Anda ingin bertemu saya. Saya sudah lama keluar dari pabrik itu. Saya tidak mau terlibat masalah."
+    b "Kami hanya ingin mendengar cerita Anda. Anda tidak perlu takut. Kami akan melindungi Anda."
+    mp "Saya tidak tahu banyak, tapi saya pernah mendengar manajer bicara soal 'pengiriman khusus' di malam hari. Mereka sangat merahasiakan itu. Saya curiga ada sesuatu yang tidak beres."
+    b "Pengiriman khusus? Apa Anda tahu kapan atau di mana itu terjadi?"
+    mp "Biasanya di gudang belakang, setelah jam kerja. Tapi saya tidak pernah melihatnya langsung. Saya hanya mendengar desas-desus dari teman-teman."
+    ah "Itu bisa jadi sesuatu. Jika kita bisa mengamati pengiriman itu, kita mungkin bisa menemukan sesuatu yang besar."
+
+    # Operasi Pengintaian
+    "Dengan informasi baru, Bima dan timnya memutuskan untuk melakukan pengintaian di pabrik Hardi. Mereka harus bertindak cepat, tetapi juga berhati-hati untuk tidak menarik perhatian."
+    ah "Lihat itu. Ada truk besar yang keluar dari gudang belakang. Tidak ada tanda pengiriman resmi di kendaraan itu."
+    b "Kita harus tahu ke mana mereka membawa barang ini. Kita ikuti, tapi jangan sampai mereka menyadari kita."
+
+    menu :
+        "Mengikuti truk dari kejauhan untuk mencari tujuan pengiriman." :
+            "Mereka mengikuti truk hingga tiba di sebuah gudang terpencil di pinggir kota. Di sana, mereka melihat aktivitas mencurigakan: beberapa pria memindahkan kotak-kotak besar ke dalam gudang."
+            b "Kita harus tahu apa isi kotak-kotak itu. Kalau ini barang ilegal, kita punya bukti yang kita cari."
+        
+        "Menyusup ke dalam pabrik untuk melihat barang apa yang dikirimkan." :
+            "Menyusup ke dalam pabrik adalah langkah berisiko, tetapi juga memberikan kesempatan untuk melihat langsung apa yang sedang terjadi di sana."
+            b "Lihat itu. Kotak-kotak ini tidak memiliki tanda resmi. Apa mungkin ini barang ilegal?"
+            ah "Kita harus memotret ini. Kalau kita bisa membawa ini ke media, mereka tidak akan bisa menyangkalnya."
+    
+    # Penemuan Barang Ilegal
+    scene bg gudang_pabrik with dissolve
+    "Bima dan timnya memasuki gudang dengan hati-hati. Mereka menyadari bahwa apa pun yang disembunyikan di sini, itu bukan sesuatu yang ingin diketahui publik."
+    ah "Pak Bima, lihat tanda di kotak itu. Itu bukan logo perusahaan resmi. Apa ini mungkin barang selundupan?"
+    b "Hanya ada satu cara untuk tahu pasti. Kita harus membuka salah satu kotak ini."
+
+    menu :
+        "Membuka kotak dengan hati-hati tanpa meninggalkan jejak." :
+            b "Lihat ini. Barang elektronik mahal? Ini tidak tercatat dalam inventaris resmi perusahaan."
+            ah "Barang elektronik seperti ini seharusnya diimpor dengan izin tertentu. Jika ini ilegal, maka ini adalah bukti kuat."
+        
+        "Mengambil risiko dengan memecahkan segel untuk melihat isinya lebih cepat." :
+            b "Ini lebih dari sekadar selundupan. Lihat dokumen ini. Ada catatan transaksi rahasia, dengan tanda tangan yang menghubungkan Hardi langsung ke jaringan ini."
+            ah "Itu tanda tangan pejabat! Mereka menggunakan pabrik ini untuk menutupi kegiatan ilegal!"
+    
+    # Penemuan yang Mengejutkan
+    b "Ini bukan hanya masalah selundupan barang. Ini adalah korupsi besar-besaran. Mereka menggunakan pabrik ini sebagai kedok untuk mengalihkan uang gelap."
+    ah "Jika kita bisa membawa dokumen ini ke publik, ini akan menghancurkan mereka. Tapi kita harus berhati-hati. Mereka pasti tidak akan tinggal diam."
+    ba "Pak, saya tahu tempat lain di gudang ini. Kadang-kadang ada kotak dengan bahan kimia yang sangat dijaga. Mungkin itu juga terkait."
+    b "Kalau begitu, kita harus mencari kotak itu juga. Kalau mereka menyelundupkan bahan kimia tanpa izin, ini akan jadi bukti tambahan."
+
+    # Penemuan Barang Berbahaya
+    scene bg gudang_chemical with dissolve
+    ah "Apa ini? Bahan kimia seperti ini seharusnya tidak ada di pabrik biasa. Ini bisa sangat berbahaya."
+    b "Ini lebih buruk dari yang saya kira. Mereka tidak hanya menyelundupkan barang ilegal, tapi juga membahayakan keselamatan pekerja dan lingkungan."
+    ba "Pak, kita harus pergi sekarang. Kalau penjaga tahu kita di sini, kita tidak akan bisa keluar."
+
+    menu :
+        "Segera keluar dengan bukti yang sudah ditemukan." :
+            "Bima dan tim memutuskan untuk segera keluar sebelum menarik perhatian. Dengan bukti di tangan, mereka tahu ini sudah cukup untuk memulai langkah berikutnya."
+        
+        "Mengambil risiko untuk mencari lebih banyak bukti." :
+            b "Ini dia. Lihat isi kotak ini. Barang mewah dan obat-obatan? Ini jelas penyelundupan besar."
+            ah "Ini cukup untuk menghancurkan mereka. Tapi penjaga akan segera tahu kita di sini. Kita harus pergi sekarang!"
+            "Meskipun berisiko, keputusan Bima untuk mencari lebih banyak bukti memberikan keunggulan strategis. Dengan data yang lebih lengkap, ia kini memiliki kekuatan untuk melawan musuh-musuhnya."
+    
+    scene bg bima_office_malam with dissolve
+    "Setelah berhasil keluar dari gudang, Bima dan timnya menyusun kembali semua bukti yang mereka kumpulkan. Barang selundupan, bahan kimia berbahaya, dan dokumen yang menghubungkan pejabat dengan pengusaha. Semua ini menjadi kunci untuk membongkar jaringan korupsi yang telah lama tersembunyi."
+
 
     return
