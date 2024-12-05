@@ -15,7 +15,8 @@ define be = Character("Buruh E", color="#cc6666")
 define ka = Character("Kolega A", color="#ffcc00")
 define kb = Character("Kolega B", color="#1ea5f9fc")
 define pk = Character("Pejabat Korup", color="#cc6666")
-
+define ah = Character("Aktivis HAM", color="#abff4b")
+define pdk = Character("Politisi Pendukung Kebijakan",color="#6666cc"))
 
 #Character expressions
 image b default = "characters/MC_Default.png"
@@ -267,5 +268,40 @@ label start:
     "Pertukaran kata-kata antara Bima dan pejabat korup itu menjadi momen penting di sidang hari itu. Bima tahu bahwa dia telah membuat lawannya merasa terancam, tetapi dia juga menyadari bahwa serangan balik dari pihak mereka tidak akan lama lagi."
 
     # Scene 2 : Investigasi Lapangan - Menyusun Bukti
+    scene bg pabrik with fade  
+    ba "Pak Bima, ini semua dokumen yang kami punya. Slip gaji, laporan jam kerja, dan foto kondisi tempat kerja kami. Tapi hati-hati, dokumen ini bisa membuat mereka marah jika mereka tahu kami yang menyerahkannya."
+    b "Kalian sudah melakukan hal yang luar biasa. Saya akan memastikan bukti ini digunakan dengan hati-hati. Tidak ada yang akan tahu siapa yang memberikan ini."
+    ah "Pak Bima, kita punya cukup bukti untuk menekan parlemen. Tapi saya tahu para pejabat yang terkait pasti akan menyerang balik. Kita harus bersiap."
+    b "Saya tidak akan mundur. Saya akan membawa ini ke meja parlemen, apa pun risikonya."
+    "Dengan bukti di tangan, Bima tahu langkah berikutnya adalah mempresentasikan kasus ini di parlemen. Namun, ia juga sadar bahwa musuhnya, terutama pejabat korup dan pengusaha besar, tidak akan tinggal diam."
+
+    scene bg bima_office_malam with fade
+    b "(Bukti ini kuat, tapi akan sulit untuk membuat semua pihak mendengar. Aku harus melangkah hati-hati, karena musuhku ada di sini, di ruang parlemen ini sendiri.)"
+
+    scene bg parliament_chamber with fade
+    lp "Anggota Bima, Anda meminta waktu untuk menyampaikan pendapat Anda tentang rancangan kebijakan ini. Silakan."
+    "Bima berdiri, membawa dokumen dari investigasi lapangannya. Ia mengambil napas dalam-dalam sebelum mulai berbicara."
+    b "Terima kasih, Ketua Sidang. Hari ini, saya ingin membahas apa yang sering kali terabaikan dalam rancangan kebijakan ini: nasib buruh. Selama beberapa minggu terakhir, saya telah turun langsung ke lapangan untuk mendengar suara mereka."
+    b "Yang saya temukan sungguh mengkhawatirkan. Jam kerja yang melebihi batas hukum, gaji yang jauh di bawah standar, dan tempat kerja yang tidak aman. Semua ini adalah pelanggaran yang nyata terhadap hak asasi manusia."
+    "Bima menunjukkan dokumen-dokumen yang dibawanya kepada anggota parlemen lain."
+    pdk "Apa yang Anda bawa ini hanya laporan sepihak. Kita tidak bisa menyusun kebijakan berdasarkan cerita yang tidak terverifikasi, Pak Bima."
+    b "Laporan ini bukan sekadar cerita. Ini bukti. Dokumen ini menunjukkan pemotongan gaji ilegal, laporan medis buruh yang terluka akibat kondisi kerja, dan catatan jam kerja yang melebihi batas hukum. Apa ini masih Anda anggap cerita sepihak?"
+    "Pejabat Korup, yang sejak tadi diam, akhirnya bangkit berdiri. Ia tersenyum kecil, mencoba mencairkan suasana."
+    pk "Anda berbicara dengan semangat yang luar biasa. Tapi izinkan saya bertanya: apakah Anda paham betapa sulitnya mengatur keseimbangan antara kebutuhan pengusaha dan hak buruh? Dunia ini tidak hanya hitam dan putih, Pak Bima."
+
+    menu :
+        "Menanggapi dengan sopan dan logis." :
+            b "Saya paham bahwa ini tidak mudah, Pak. Tapi tugas kita di sini adalah membuat keputusan yang adil untuk semua pihak, bukan hanya untuk mereka yang memiliki kuasa. Jika keseimbangan yang Anda maksud adalah terus membiarkan pelanggaran ini, maka saya rasa itu bukan keseimbangan, melainkan ketidakadilan."
+            pk "Tuduhan Anda terlalu berat untuk sesuatu yang Anda anggap 'ketidakadilan'. Hati-hati, Pak Bima. Anda bisa melangkah terlalu jauh."
+        "Menyerang balik dengan mempertanyakan integritasnya." :
+            b "Keseimbangan? Apa yang Anda maksud dengan keseimbangan adalah memberikan kekuasaan mutlak kepada pengusaha dan membiarkan buruh menjadi korban? Kalau begitu, saya tidak ingin menjadi bagian dari keseimbangan itu."
+            pk "Kata-kata Anda keras, Pak Bima. Tapi keras kepala saja tidak cukup untuk membuat perubahan. Apa Anda yakin bisa menghadapi konsekuensi dari ucapan Anda?"
+            b "Kalau memperjuangkan keadilan membawa konsekuensi, maka saya akan menerimanya. Yang tidak bisa saya terima adalah diam melihat rakyat terus menderita."
     
+    "Dialog itu menjadi momen puncak dalam sidang hari itu. Bima telah membuat musuhnya merasa terpojok, tetapi ia juga tahu bahwa serangan balik dari mereka tidak akan lama lagi. Pejabat korup itu duduk kembali dengan senyum tipis, merencanakan langkah selanjutnya."
+    "Dengan bukti yang kuat dan dukungan yang mulai tumbuh, Bima harus bersiap menghadapi langkah selanjutnya. Lawannya, pejabat korup dan pengusaha besar, pasti akan mencoba membalas serangan ini. Namun, Bima tahu, perjuangannya baru dimulai."
+
+    # Scene 3 : Munculnya Pengusaha Tamak
+    
+
     return
