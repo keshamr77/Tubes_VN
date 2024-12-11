@@ -554,5 +554,69 @@ label start:
     scene bg fazle_office_malam with dissolve
     "Setelah berhasil keluar dari gudang, Fazle dan timnya menyusun kembali semua bukti yang mereka kumpulkan. Barang selundupan, bahan kimia berbahaya, dan dokumen yang menghubungkan pejabat dengan pengusaha. Semua ini menjadi kunci untuk membongkar jaringan korupsi yang telah lama tersembunyi."
 
+    #START OF ARC 3
+    # SCENE 1 : Membuka bukti ke publik
+    "Setelah berhari-hari mengumpulkan bukti yang kuat, Fazle memutuskan untuk melangkah lebih jauh dengan membawa bukti ini ke publik." 
+    "Baginya, ini adalah langkah penting untuk melawan propaganda dan konspirasi yang melindungi pelaku kejahatan."
+
+    show b default at Position(xpos=0.3, ypos=2.0) with dissolve
+    b "Hari ini, saya berdiri di sini bukan hanya sebagai seorang anggota parlemen, tetapi sebagai suara rakyat yang selama ini diabaikan."
+    b "Bukti ini menunjukkan kejahatan yang telah dilakukan oleh pengusaha besar dan pejabat yang seharusnya melindungi rakyat."
+    b "Saya tidak akan diam sampai keadilan ditegakkan."
+
+    menu:
+        "Mengungkap bukti secara rinci di depan wartawan":
+            b "Bukti-bukti ini menunjukkan adanya penyelundupan barang ilegal dan pelanggaran hak buruh di pabrik tertentu. Selain itu, terdapat dokumen yang menghubungkan aliran dana ilegal kepada pejabat tertentu. Semua ini diverifikasi oleh tim saya."
+            wi "Pak RFazle, apakah ini berarti Anda menuduh pejabat tinggi yang disebutkan dalam dokumen ini sebagai pelaku korupsi?"
+            b "Saya tidak menuduh, saya hanya menyampaikan fakta. Fakta yang telah diverifikasi dan akan saya bawa ke pengadilan."
+
+        "Menyampaikan ancaman halus kepada pihak yang terlibat agar mereka bertanggung jawab":
+            b "Bagi mereka yang terlibat, saya ingin mengingatkan: waktu Anda untuk bertanggung jawab semakin menipis. Jika Anda tidak mengambil langkah untuk memperbaiki kesalahan ini, maka saya akan memastikan hukum berjalan, apa pun risikonya."
+            "Pernyataan tegas Fazle menjadi sorotan utama di berita malam itu. Beberapa pejabat yang terlibat mulai merasa terpojok, sementara pendukung rakyat kecil memberikan dukungan penuh."
+
+    # SCENE 2 : Serangan Balik Musuh
+    scene bg bussiness_office with fade
+    "Pengungkapan Fazle membawa tekanan besar bagi para pelaku. Namun, mereka tidak akan tinggal diam."
+    h "Dia pikir dia bisa menang hanya dengan bukti itu? Media mudah dipengaruhi. Kita buat cerita yang menunjukkan dia sebagai penghasut dan manipulatif."
+    pk "Dan saya akan memastikan dukungannya di parlemen menghilang. Kita hanya perlu membuatnya terlihat tidak kompeten."
+
+    menu:
+        "Membalas dengan langkah hukum cepat untuk melindungi kredibilitas":
+            b "Saya tahu mereka akan mencoba membalas. Kita harus segera membawa bukti ini ke pihak berwenang sebelum opini publik diputarbalikkan. Hukum harus mendahului propaganda mereka."
+            mp "Pak Fazle, kami akan bekerja untuk memastikan tidak ada celah yang bisa dimanfaatkan."
+            "Fazle membawa bukti-bukti itu langsung ke KPK dan media nasional untuk memastikan langkah hukumnya tidak dapat diganggu."
+
+        "Membangun aliansi dengan media independen untuk melawan propaganda":
+            b "Mereka mungkin punya media besar, tapi kita punya kebenaran di pihak kita. Kita bekerja dengan media independen untuk memastikan rakyat tahu apa yang sebenarnya terjadi."
+            wi "Kami akan membantu Anda, Pak Fazle. Tapi ini akan menjadi perang panjang, dan kami juga akan menjadi target."
+            "Media independen mulai mempublikasikan bukti Fazle secara luas. Meski mendapat tekanan besar, kebenaran perlahan mulai mencuat."
+    
+    # SCENE 3 : Sidang Parlemen Terakhir
+    scene bg parliament_chamber with fade
+    lp "Anggota Fazle, Anda telah meminta sidang ini untuk mempresentasikan kasus Anda. Kami ingin mendengar pernyataan Anda."
+    b "Bukti-bukti yang saya bawa tidak hanya tentang pelanggaran buruh, tetapi juga penyelundupan dan korupsi yang melibatkan pejabat tinggi dan pengusaha besar. Jika parlemen tidak bertindak sekarang, maka kita semua bertanggung jawab atas penderitaan rakyat."
+
+    menu :
+        "Fokus pada bukti dan data yang tidak dapat dibantah." :
+            b "Berikut adalah catatan transaksi yang menghubungkan pengusaha dan pejabat tertentu, serta foto-foto barang selundupan dari pabrik. Semua ini telah diverifikasi oleh pihak ketiga."
+            "Pendekatan profesional Fazle membuat sebagian anggota parlemen mulai mempertimbangkan untuk mendukungnya. Namun, beberapa masih skeptis."
+            jump goodending
+        
+        "Menyerang langsung integritas para pelaku di depan sidang." :
+            b "Pejabat seperti Anda, Pak Herman, tidak bisa lagi berlindung di balik kekuasaan. Bukti ini menunjukkan jelas keterlibatan Anda dalam jaringan korupsi. Saya menantang Anda untuk membuktikan sebaliknya."
+            "Pendekatan agresif Fazle membuat suasana sidang memanas. Beberapa anggota parlemen mendukung, tetapi ada yang merasa cara ini terlalu berisiko."
+        
+label goodending :
+    "Hakim mengetuk palu, memutuskan Hardi dan Pejabat Korup bersalah."
+    "Dan undang-undang yang baru kemudian disahkan."
+    jump endscene
+
+label badending:
+    "Sayangnya, serangan balik musuh berhasil."
+    "Fazle kehilangan dukungan politik dan reputasinya hancur."
+    jump endscene
+
+label endscene:
+    "Perjuangan melawan ketidakadilan bukanlah jalan yang mudah. Namun, setiap langkah kecil selalu berarti bagi masa depan yang lebih baik."
 
     return
