@@ -33,6 +33,16 @@ image ba silhouette =  "characters/Buruh_Telfon.png"
 image bb rame = "characters/Buruh_Ramai.png"
 image h default = "characters/Pengusaha_Default.png"
 image h angry = "characters/Pengusaha_angry.png"
+image pk default = "characters/POLKORUP_DEFAULT.png"
+image pk default_formal = "characters/POLKORUP_DEFAULT1.png"
+image pk angry = "characters/POLKORUP_ANGRY.png"
+image pk angry_formal = "characters/POLKORUP_ANGRY1.png"
+image pk smile = "characters/POLKORUP_SMILE.png"
+image pk smile_formal = "characters/POLKORUP_SMILE1.png"
+image pk worried = "characters/POLKORUP_WORRIED.png"
+image pk worried_formal = "characters/POLKORUP_WORRIED1.png"
+image wi default = "characters/WARTAWAN.png"
+image mp default = "characters/MANTAN_PEKERJA.png"
 
 # Background Definitions
 image bg parliament_chamber = im.Scale("backgrounds/parliament_chamber.jpg", 1920, 1080)
@@ -82,7 +92,7 @@ label start:
     # Scene 2: Kantor Parlemen - Hari Pertama Fazle 
     scene bg parliament_hall at truecenter with dissolve # Background: kantor parlemen
     "Hari pertama di parlemen. Fazle tahu, ini bukan hanya pekerjaan. Ini adalah perjuangan untuk mereka yang tidak memiliki suara."
-    asisten "Pak Fazle , selamat datang. Rapat pertama Anda akan dimulai dalam satu jam. Semua anggota sudah tidak sabar mendengar ide-ide segar Anda."
+    asisten "Pak Fazle, selamat datang. Rapat pertama Anda akan dimulai dalam satu jam. Semua anggota sudah tidak sabar mendengar ide-ide segar Anda."
     show b default at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Terima kasih. Saya akan memastikan mereka mendengar apa yang perlu mereka dengar."
 
