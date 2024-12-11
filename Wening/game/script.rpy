@@ -16,12 +16,12 @@ define ka = Character("Kolega A", color="#ffcc00")
 define kb = Character("Kolega B", color="#1ea5f9fc")
 define pk = Character("Pejabat Korup", color="#cc6666")
 define ah = Character("Aktivis HAM", color="#abff4b")
-define pdk = Character("Politisi Pendukung Kebijakan",color="#6666cc"))
-define va = Characters("Asisten", color="#9966cc")
-define eb = Characters("Pengusaha Tamak", color="#cc6666")
-define h = Characters("Hardi",color="#cc6666")
-define wi = Characters("Wartawan Independen", color="#f94ef3")
-define mp = Characters("Mantan Pekerja", color="#ffcc00")
+define pdk = Character("Politisi Pendukung Kebijakan",color="#6666cc")
+define va = Character("Asisten", color="#9966cc")
+define eb = Character("Pengusaha Tamak", color="#cc6666")
+define h = Character("Hardi",color="#cc6666")
+define wi = Character("Wartawan Independen", color="#f94ef3")
+define mp = Character("Mantan Pekerja", color="#ffcc00")
 
 #Character expressions
 image b default = "characters/MC_Default.png"
@@ -31,8 +31,10 @@ image b worried = "characters/MC_worried.png"
 image ibu = "characters/Ibu.png"
 image ba silhouette =  "characters/Buruh_Telfon.png"
 image bb rame = "characters/Buruh_Ramai.png"
+image h default = "characters/Pengusaha_Default.png"
+image h angry = "characters/Pengusaha_angry.png"
 
-# Background Definitions'
+# Background Definitions
 image bg parliament_chamber = im.Scale("backgrounds/parliament_chamber.jpg", 1920, 1080)
 image bg parliament_hall = im.Scale("backgrounds/parliament_hall.png", 1920, 1080)
 image bg bima_office_sore = im.Scale("backgrounds/bima_office_sore.png", 1920, 1080)
@@ -43,6 +45,11 @@ image bg pabrik= im.Scale("backgrounds/pabrik.jpg", 1920,1080)
 image bg gudang= im.Scale("backgrounds/gudang.jpg", 1920,1080)
 image bg bussiness_office = im.Scale("backgrounds/kantor_pengusaha.png", 1920, 1080)
 image bg restaurant = im.Scale("backgrounds/restoran.png", 1920,1080)
+
+# Music Definitions
+define bgm_conflict = "music/conflict_bgm.mp3"
+define bgm_flashbacks = "music/flashbacks_bgm.mp3"
+
 
 # Transformations 
 transform zoomed_for_silhoutte:
@@ -55,6 +62,7 @@ label start:
     $ renpy.music.stop()
     
     #START OF ARC 1
+    play music bgm_flashbacks fadein 1.0 loop
 
     # Scene 1: Rumah Bima - Refleksi Masa Lalu
     scene bg living_room with fade  # Background: ruang tamu
@@ -221,16 +229,19 @@ label start:
     lp "Sidang hari ini akan membahas finalisasi rancangan kebijakan tenaga kerja. Kami meminta anggota yang ingin berbicara untuk mengajukan pendapat mereka."
     
     "Semua mata tertuju pada Bima, yang telah menjadi sorotan sejak sidang sebelumnya. Beberapa politisi tersenyum sinis, sementara yang lain mengangguk pelan, mendukungnya secara diam-diam."
+    show b worried at Position(xpos=0.3, ypos=2.0) with dissolve
     b "(Mereka sedang menunggu aku membuat kesalahan. Tapi aku tidak boleh diam. Rakyat membutuhkan suara ini.)"
     
     menu:
         "Berbicara dengan tenang dan penuh perhitungan.":
+            show b default at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Terima kasih atas kesempatannya. Saya ingin mengingatkan bahwa kebijakan ini harus melindungi semua pihak, termasuk buruh yang menjadi tulang punggung ekonomi kita. Jika kita hanya memihak pengusaha, kita akan menciptakan ketimpangan yang lebih dalam."
             psa "Pak Bima, Anda berbicara tentang ketimpangan, tetapi apakah Anda memahami kebutuhan investasi? Kita butuh investor untuk menciptakan lapangan kerja."
             b "Saya paham pentingnya investasi. Namun, investasi yang dibangun di atas ketidakadilan hanya akan merusak fondasi bangsa kita. Kita bisa mendukung pengusaha tanpa mengorbankan hak buruh."
             "Pendekatan Bima yang tenang berhasil menarik perhatian beberapa anggota parlemen. Namun, skeptisisme tetap kuat, terutama dari pihak pendukung kebijakan."
 
         "Langsung menyerang dengan bukti awal yang dimiliki.":
+            show b angry at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Rancangan kebijakan ini bukan hanya soal ekonomi, tetapi juga soal moralitas. Saya telah melihat sendiri bagaimana pengusaha besar menggunakan kekuasaan mereka untuk menindas buruh, dan bukti ini hanya sebagian kecil dari apa yang saya temukan."
             "Bima menunjukkan dokumen awal yang mengungkap pelanggaran jam kerja dan gaji minimum di pabrik besar. Ruangan sidang menjadi sunyi, namun ketegangan meningkat."
             psb "Apa maksud Anda dengan ini? Tuduhan ini tidak berdasar. Anda hanya mencoba memancing perhatian."
@@ -238,13 +249,12 @@ label start:
             "Strategi Bima berhasil memancing reaksi keras dari pihak pendukung kebijakan, tetapi juga menarik dukungan dari beberapa anggota parlemen independen."
 
     # Scene 2: Konflik Internal - Rekan Parlemen Ragu
-    scene bg parliament_hall with dissolve
     ka "Bima, apa yang kamu lakukan? Kamu tahu mereka tidak akan tinggal diam. Mereka punya kekuatan untuk menjatuhkanmu."
+    show b angry at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Kalau aku diam, lalu siapa yang akan bicara untuk rakyat? Aku tidak peduli risiko ini, selama aku tahu aku berada di pihak yang benar."
     kb "Hati-hati, Bima. Kita mendukungmu, tapi jangan membuat mereka merasa terlalu terpojok. Mereka bisa balas menyerang."
 
     # Scene 3: Konfrontasi dengan Pejabat Korup
-    scene bg parliament_chamber with dissolve
     pk "Pak Bima, saya memahami semangat Anda sebagai anggota baru di parlemen. Namun, izinkan saya memberi sedikit masukan. Dunia politik tidak sesederhana yang Anda bayangkan. Terkadang, kompromi adalah jalan terbaik untuk mencapai tujuan besar."
     b "Kompromi? Apa yang Anda maksud dengan kompromi, Pak? Membiarkan rakyat terus menderita demi menjaga keuntungan segelintir pihak?"
     
@@ -333,7 +343,9 @@ label start:
             b "Saya akan tetap pada pendirian saya. Jika Pak Hardi ingin berbicara, dia bisa menghadapi saya di parlemen atau melalui jalur resmi lainnya."
 
     scene bg bussiness_office with fade
+    show h default at Position(xpos=0.8, ypos=2.0) with dissolve
     h "Pak Bima, pertama-tama, saya ingin mengucapkan terima kasih atas waktu Anda. Tidak banyak anggota parlemen yang mau repot-repot mendengar langsung dari pelaku usaha seperti saya."
+    show b happy at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Terima kasih atas undangannya, Pak. Saya di sini untuk memastikan bahwa kebenaran muncul dan keadilan ditegakkan. Saya harap diskusi ini bisa bermanfaat."
     h "Ah, keadilan, kata yang indah. Tapi, Anda harus tahu bahwa keadilan sering kali bersifat relatif, tergantung dari mana Anda melihatnya. Dunia ini penuh nuansa, Pak Bima, bukan hitam putih seperti yang sering digambarkan."
 
