@@ -60,9 +60,8 @@ label start:
     hide ibu mc
     show bima kecil
     b "Tapi Ibu, kenapa kita harus pergi? Ini rumah kita!"
-    "Fazle muda tidak pernah melupakan malam itu—malam di mana keluarganya kehilangan segalanya karena keputusan segelintir orang di atas."
-    hide ibu mc
     hide bima kecil
+    "Fazle muda tidak pernah melupakan malam itu—malam di mana keluarganya kehilangan segalanya karena keputusan segelintir orang di atas."
     stop music fadeout 1.0
 
     # Kembali ke masa kini
@@ -71,9 +70,10 @@ label start:
     "Kembali ke masa kini. Fazle menatap foto mendiang ayahnya di meja."
     show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
     b "(Ayah, malam itu aku tidak bisa melakukan apa-apa. Tapi sekarang aku punya kesempatan untuk melawan mereka yang mengambil segalanya dari kita.)"
-   
+    stop music fadeout 1.0
 
     # Scene 2: Kantor Parlemen - Hari Pertama Fazle 
+    play music parliament_bgm fadein 3.0
     scene bg parliament_hall at truecenter with dissolve # Background: kantor parlemen
     "Hari pertama di parlemen. Fazle tahu, ini bukan hanya pekerjaan. Ini adalah perjuangan untuk mereka yang tidak memiliki suara."
     show asisten parlemen at Position(xpos=0.7, ypos=2.0) with dissolve
@@ -95,20 +95,19 @@ label start:
     "Beberapa politisi mulai memperhatikan lebih serius."
     b "Sebagai wakil rakyat, tugas utama kita adalah mendengar suara mereka yang memilih kita. Namun, saya tidak bisa mengabaikan kenyataan bahwa ada begitu banyak suara yang tidak terdengar—mereka yang tidak punya kesempatan untuk berbicara di tempat seperti ini."
     hide bima netral
-    stop music fadeout 1.0
-    play music parliament_bgm fadein 3.0
-    #SHOW PSA#
+    show psa at Position(xpos=0.7, ypos=2.0) with dissolve
     psa "Saudara Fazle, itu pidato yang indah. Tapi izinkan saya bertanya: apakah Anda tahu betapa sulitnya membawa perubahan dalam sistem yang sudah mapan ini?"
-    
+    hide psa
+
     menu:
         "Menjawab dengan sopan namun percaya diri":
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Saya mengerti bahwa perubahan itu sulit. Tapi saya percaya, setiap langkah kecil bisa membawa kita ke arah yang lebih baik. Saya di sini untuk memulai langkah itu."
             hide bima netral with dissolve
             "Jawaban Fazle menunjukkan kedewasaan. Beberapa politisi terlihat sedikit terkesan, meskipun skeptisisme tetap terlihat di wajah mereka."
-            #SHOW PSB#
+            show psb at Position(xpos=0.7, ypos=2.0) with dissolve
             psb "Hmph, langkah kecil tidak akan berarti apa-apa jika Anda tidak memiliki dukungan yang cukup."
-            #HIDE PSB#
+            hide psb
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "(Dukungan? Kalau begitu, aku harus membuktikan diriku terlebih dahulu.)"
             hide bima netral
@@ -118,9 +117,9 @@ label start:
             b "Sistem ini mapan, tapi tidak sempurna. Tugas kita bukan untuk menerima kenyataan, melainkan untuk memperbaikinya. Saya yakin, jika kita bekerja sama, kita bisa membawa perubahan."
             hide bima netral
             "Kata-kata Fazle mengundang perhatian yang lebih besar, tetapi juga beberapa tatapan dingin dari anggota parlemen yang merasa terganggu oleh keberaniannya."
-            #show psa#
+            show psa at Position(xpos=0.7, ypos=2.0) with dissolve
             psa "Berani sekali bicara seperti itu di hari pertama Anda. Kita lihat apakah Anda masih bisa bicara besar setelah satu tahun di sini."
-            #HIDE PSA#
+            hide psa
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "(Mungkin aku baru di sini, tapi aku tidak akan membiarkan intimidasi menghentikan langkahku.)"
             hide bima netral 
@@ -130,32 +129,33 @@ label start:
     lp "Baiklah, mari kita lanjutkan ke agenda hari ini: pembahasan mengenai rancangan undang-undang ketenagakerjaan. Ada pendapat dari pihak pendukung?"
     "Seorang politisi berdiri, berbicara dengan penuh percaya diri."
     #HIDE KETUA SIDANG#
-    #SHOW PSA#
+    show psa at Position(xpos=0.7, ypos=2.0) with dissolve
     psa "Rancangan ini penting untuk meningkatkan daya saing tenaga kerja kita di pasar internasional. Fleksibilitas jam kerja dan efisiensi tenaga kerja akan memberikan keuntungan besar bagi ekonomi kita."
-    #hide psa#
-    show bima worry at Position(xpos=0.3, ypos=2.0) with dissolve
+    hide psa
+    show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
     b "(Keuntungan ekonomi? Bagaimana dengan nasib para buruh yang jam kerjanya diperpanjang tanpa perlindungan?)"
     
-    show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
+    
     menu:
         "Memprotes langsung rancangan tersebut dengan argumen yang tajam":
+            hide bima netral
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Maaf, tapi saya tidak bisa mendukung rancangan ini. Apakah kita mempertimbangkan bagaimana fleksibilitas ini akan mempengaruhi para buruh? Mereka sudah bekerja terlalu keras untuk upah yang tidak layak. Menambah jam kerja hanya akan memperburuk keadaan mereka."
             hide bima netral 
-            #SHOW PSB#
+            show psb at Position(xpos=0.7, ypos=2.0) with dissolve
             psb "Saudara Fazle, ini bukan hanya tentang buruh. Ini tentang ekonomi negara kita. Jika buruh tidak kompetitif, siapa yang akan berinvestasi di sini?"
-            #HIDE PSB#
+            hide psb
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Dan apa gunanya investasi jika masyarakat yang kita wakili hidup dalam penderitaan? Prioritas kita harus selalu rakyat, bukan angka di laporan ekonomi."
-            hide bima marah
+            hide bima netral
 
         "Mengajukan pertanyaan untuk menggiring diskusi ke isu buruh":
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Saya punya pertanyaan. Bagaimana rancangan ini memastikan bahwa hak buruh tetap terlindungi? Apakah ada mekanisme untuk mencegah eksploitasi tenaga kerja?"
             hide bima netral
-            #SHOW PSB#
+            show psb at Position(xpos=0.7, ypos=2.0) with dissolve
             psb "Hmm, tentu saja, ada regulasi tambahan yang akan kita bahas nanti. Tapi fokus kita sekarang adalah pada daya saing."
-            #HIDE PSB#
+            hide psb
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Kalau begitu, saya berharap pembahasan itu menjadi prioritas. Daya saing tidak ada artinya jika tenaga kerja kita diperlakukan seperti mesin tanpa batas."
             hide bima netral
@@ -166,11 +166,13 @@ label start:
     # Scene lorong parlemen after scene 3
     play music idle_bgm fadein 1.0 volume 0.5
     scene bg parliament_hall at truecenter with dissolve # Background: kantor parlemen
+    show mantan pekerja at Position(xpos=0.3, ypos=2.0) with dissolve
     mp "Pak Fazle, Anda berbicara dengan sangat baik tadi. Tidak banyak orang yang berani mempertanyakan kebijakan seperti itu."
-    show bima senang at Position(xpos=0.3, ypos=2.0) with dissolve
+    show bima senang at Position(xpos=0.7, ypos=2.0) with dissolve
     b "Terima kasih. Tapi ini baru awal. Masih banyak yang perlu diperjuangkan."
-    hide bima senang
     mp "Saya setuju. Kalau Anda butuh dukungan, saya ada di pihak Anda."
+    hide bima senang
+    hide mantan pekerja
     "Fazle mulai mendapatkan sekutu, meskipun perjuangan keadilan masih panjang."
     stop music fadeout 3.0
 
@@ -200,15 +202,15 @@ label start:
     "Dengan bantuan timnya di daerah, Fazle akhirnya berhasil menjalin kontak dengan salah satu buruh yang berani berbicara."
     
     # Sesi telepon dengan buruh"
-    
+    show buruh telpon at Position(xpos=0.3, ypos=2.0) with dissolve
     ba "Pak Fazle, terima kasih sudah meluangkan waktu untuk kami. Saya bekerja di pabrik itu hampir 10 tahun. Belakangan ini, kondisi kami semakin buruk. Jam kerja bertambah, tapi gaji tetap kecil. Beberapa teman saya bahkan dipecat setelah mencoba mengajukan protes."
-    hide buruh telepon
+    hide buruh telpon
     show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Saya mendengar masalah ini dari laporan. Tapi saya ingin memastikan, apa Anda memiliki bukti, atau ada orang lain yang bisa mendukung cerita ini?"
     hide bima netral
-    show buruh telepon at Position(xpos=0.7) with dissolve
+    show buruh telpon at Position(xpos=0.3, ypos=2.0) with dissolve
     ba "Kami punya dokumen slip gaji dan daftar jam kerja yang tidak sesuai dengan kontrak. Tapi kalau kami ketahuan, risikonya terlalu besar. Tolong bantu kami, Pak."
-    hide buruh telepon 
+    hide buruh telpon 
     show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Tenang. Saya akan datang ke tempat Anda dalam beberapa hari. Kita akan bertemu secara aman dan mendiskusikan ini lebih jauh. Saya akan memastikan suara Anda terdengar, tapi Anda juga harus berhati-hati."
     hide bima netral
@@ -224,56 +226,64 @@ label start:
 
     # Perjalanan menuju gudang tempat pertemuan
     scene bg gudang with fade  
+    show buruh ramai
     "Fazle berjalan melewati lorong sempit menuju sebuah gudang kosong di belakang pabrik, tempat pertemuan akan diadakan. Sekelompok buruh menunggu di sana, wajah mereka menunjukkan kelelahan dan kecemasan."
-    
     
     # Pertemuan dengan buruh
     show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Terima kasih sudah meluangkan waktu untuk bertemu dengan saya. Saya tahu ini tidak mudah, tapi saya ingin mendengar langsung apa yang kalian alami."
-    hide bima netral
-    show buruh ramai with dissolve
 
+    show buruh a at Position(xpos=0.7, ypos=2.0) with dissolve
     ba "Pak Fazle, terima kasih juga sudah meluangkan waktu untuk bertemu dengan kami. Kami tidak tahu harus bicara ke siapa lagi. Kami sudah mencoba menyampaikan keluhan, tapi tidak ada yang peduli."
+    hide buruh a
+    show buruh b at Position(xpos=0.7, ypos=2.0) with dissolve
     bb "Semakin lama, kondisi kerja kami makin buruk. Jam kerja ditambah tanpa pemberitahuan, tapi gaji tetap kecil. Mereka juga mulai memotong tunjangan kesehatan."
-    show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
+    hide buruh b
     b "Saya sudah membaca laporan kalian, tapi saya ingin mendengar lebih rinci. Apa ada bukti yang bisa membantu kita memperkuat argumen ini? Dokumen atau catatan yang menunjukkan pelanggaran mereka?"
-    hide bima netral
+    show buruh c at Position(xpos=0.7, ypos=2.0) with dissolve
     bc "Ada, Pak. Beberapa teman kami diam-diam mencatat jam kerja yang tidak sesuai kontrak. Tapi kami takut, Pak. Kalau ketahuan, kami bisa dipecat."
-    show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
+    hide buruh c
     b "Saya mengerti. Kalian punya alasan untuk khawatir. Tapi kita harus hati-hati. Bukti ini sangat penting untuk membawa kasus kalian ke tingkat yang lebih tinggi."
     hide bima netral
 
     # Buruh yang skeptis
     "Di tengah percakapan, salah satu buruh tiba-tiba berdiri. Wajahnya terlihat penuh amarah."
+    show buruh d at Position(xpos=0.3, ypos=2.0) with dissolve
     bd "Apa gunanya semua ini, Pak Fazle? Kami sudah mencoba protes sebelumnya, tapi malah diberhentikan! Bos hanya peduli pada keuntungan. Tidak ada yang peduli dengan kami!"
-    show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
+    show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
     b "Saya tahu kalian merasa putus asa. Tapi percayalah, jika kita bergerak bersama dengan bukti yang kuat, kita bisa membawa masalah ini ke meja hukum. Saya tidak akan membiarkan mereka lolos begitu saja."
+    hide buruh d
+    hide bima netral
 
     menu:
         "Mengumpulkan bukti melalui wawancara dan dokumen":
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Kita mulai dari langkah kecil. Kumpulkan semua dokumen yang menunjukkan pelanggaran: slip gaji, jam kerja, atau kontrak yang tidak dipatuhi. Saya akan mengatur agar semua ini tetap aman."
-            hide bima netral
+            show buruh b at Position(xpos=0.7, ypos=2.0) with dissolve
             bb "Tapi, bagaimana kalau mereka tahu, Pak? Kami bisa kehilangan pekerjaan."
-            show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Saya akan memastikan kalian tidak sendirian. Jika kalian bersatu, suara kalian akan lebih kuat. Percayalah, saya di sini untuk melindungi kalian."
+            hide buruh b
+            hide bima netral
             "Dengan hati-hati, para buruh mulai menyerahkan beberapa dokumen yang mereka kumpulkan. Fazle mencatat semua informasi dengan saksama, memastikan mereka merasa aman dan didengar."
         
         "Mengorganisir buruh untuk memulai protes besar":
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Jika kita ingin perubahan cepat, kita harus bersatu. Kita bisa mengorganisir protes damai untuk menunjukkan bahwa suara kalian tidak bisa diabaikan."
-            hide bima netral
+            show buruh a at Position(xpos=0.7, ypos=2.0) with dissolve
             ba "Protes? Itu berisiko besar, Pak. Mereka bisa memanggil polisi untuk membubarkan kami."
-            show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Risiko itu ada, tapi kita akan melakukannya dengan cara yang aman. Kita libatkan media dan organisasi HAM untuk memastikan bahwa mereka tidak bisa bertindak semena-mena. Ini bukan hanya tentang kalian, tapi tentang ribuan buruh lain yang menghadapi masalah serupa."
+            hide buruh a
+            hide bima netral
             "Setelah diskusi panjang, sebagian buruh setuju untuk mulai mengorganisir protes. Namun, rasa takut tetap ada di antara mereka."
     
     # Tantangan buruh yang skeptis
+    show buruh e at Position(xpos=0.3, ypos=2.0) with dissolve
     be "Pak Fazle, saya sudah lama bekerja di sini. Bos kami punya banyak koneksi, bahkan ke pejabat tinggi. Apa Anda yakin bisa melawan mereka?"
-    show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
+    show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
     b "Saya tidak bisa menjanjikan kemenangan instan, tapi saya bisa menjanjikan ini: saya akan berdiri di sisi kalian sampai akhir. Sistem ini tidak akan berubah jika kita hanya diam."
     hide bima netral
     be "(Orang ini berbeda dari politisi lain. Mungkin... dia benar-benar peduli.)"
+    hide buruh e
 
     #Narasi akhir scene 5
     "Malam itu, Fazle meninggalkan kawasan pabrik dengan membawa dokumen dan kesaksian buruh. Di pikirannya, dia tahu ini hanya awal dari perjuangan yang panjang. Tapi dia juga tahu, setiap langkah kecil membawa harapan untuk perubahan."
@@ -296,7 +306,7 @@ label start:
     lp "Sidang hari ini akan membahas finalisasi rancangan kebijakan tenaga kerja. Kami meminta anggota yang ingin berbicara untuk mengajukan pendapat mereka."
     
     "Semua mata tertuju pada Fazle, yang telah menjadi sorotan sejak sidang sebelumnya. Beberapa politisi tersenyum sinis, sementara yang lain mengangguk pelan, mendukungnya secara diam-diam."
-    show bima worry at Position(xpos=0.3, ypos=2.0) with dissolve
+    show bima khawatir at Position(xpos=0.3, ypos=2.0) with dissolve
     b "(Mereka sedang menunggu aku membuat kesalahan. Tapi aku tidak boleh diam. Rakyat membutuhkan suara ini.)"
     
     menu:
@@ -304,37 +314,47 @@ label start:
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Terima kasih atas kesempatannya. Saya ingin mengingatkan bahwa kebijakan ini harus melindungi semua pihak, termasuk buruh yang menjadi tulang punggung ekonomi kita. Jika kita hanya memihak pengusaha, kita akan menciptakan ketimpangan yang lebih dalam."
             hide bima netral
+            show psa at Position(xpos=0.7, ypos=2.0) with dissolve
             psa "Pak Fazle, Anda berbicara tentang ketimpangan, tetapi apakah Anda memahami kebutuhan investasi? Kita butuh investor untuk menciptakan lapangan kerja."
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Saya paham pentingnya investasi. Namun, investasi yang dibangun di atas ketidakadilan hanya akan merusak fondasi bangsa kita. Kita bisa mendukung pengusaha tanpa mengorbankan hak buruh."
             hide bima netral
+            hide psa
             "Pendekatan Fazle yang tenang berhasil menarik perhatian beberapa anggota parlemen. Namun, skeptisisme tetap kuat, terutama dari pihak pendukung kebijakan."
 
         "Langsung menyerang dengan bukti awal yang dimiliki.":
-            show bima marah at Position(xpos=0.3, ypos=2.0) with dissolve
+            show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Rancangan kebijakan ini bukan hanya soal ekonomi, tetapi juga soal moralitas. Saya telah melihat sendiri bagaimana pengusaha besar menggunakan kekuasaan mereka untuk menindas buruh, dan bukti ini hanya sebagian kecil dari apa yang saya temukan."
-            hide bima marah
+            hide bima netral
             "Fazle menunjukkan dokumen awal yang mengungkap pelanggaran jam kerja dan gaji minimum di pabrik besar. Ruangan sidang menjadi sunyi, namun ketegangan meningkat."
+            show psb at Position(xpos=0.3, ypos=2.0) with dissolve
             psb "Apa maksud Anda dengan ini? Tuduhan ini tidak berdasar. Anda hanya mencoba memancing perhatian."
-            show bima marah at Position(xpos=0.3, ypos=2.0) with dissolve
+            show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
             b "Kalau memang tidak berdasar, kenapa Anda terlihat begitu defensif? Saya hanya menginginkan transparansi. Jika kebijakan ini sah, maka tidak ada yang perlu disembunyikan."
+            hide psb
+            hide bima netral
             "Strategi Fazle berhasil memancing reaksi keras dari pihak pendukung kebijakan, tetapi juga menarik dukungan dari beberapa anggota parlemen independen."
 
     # Scene 2: Konflik Internal - Rekan Parlemen Ragu
+    show kolega a at Position(xpos=0.3, ypos=2.0) with dissolve
     ka "Fazle, apa yang kamu lakukan? Kamu tahu mereka tidak akan tinggal diam. Mereka punya kekuatan untuk menjatuhkanmu."
-    show bima marah at Position(xpos=0.3, ypos=2.0) with dissolve
+    show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
     b "Kalau aku diam, lalu siapa yang akan bicara untuk rakyat? Aku tidak peduli risiko ini, selama aku tahu aku berada di pihak yang benar."
-    hide bima marah
+    hide kolega a
+    show kolega b at Position(xpos=0.3, ypos=2.0) with dissolve
     kb "Hati-hati, Fazle. Kita mendukungmu, tapi jangan membuat mereka merasa terlalu terpojok. Mereka bisa balas menyerang."
+    hide kolega b
+    hide bima netral
     stop music fadeout 1.0
 
     # Scene 3: Konfrontasi dengan Pejabat Korup
     play music parliament_conflict fadein 1.0
-    show antagonis default at Position(xpos=0.7, ypos=2.0) with dissolve
+    show antagonis default at Position(xpos=0.3, ypos=2.0) with dissolve
     pk "Pak Fazle, saya memahami semangat Anda sebagai anggota baru di parlemen. Namun, izinkan saya memberi sedikit masukan. Dunia politik tidak sesederhana yang Anda bayangkan. Terkadang, kompromi adalah jalan terbaik untuk mencapai tujuan besar."
-    show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
+    show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
     b "Kompromi? Apa yang Anda maksud dengan kompromi, Pak? Membiarkan rakyat terus menderita demi menjaga keuntungan segelintir pihak?"
     pk "Anda salah paham. Tidak ada yang ingin rakyat menderita. Namun, kita juga harus berpikir realistis. Dunia tidak bekerja dengan idealisme, Pak Fazle . Anda perlu memahami bahwa roda ekonomi harus terus berputar, dan itu membutuhkan keseimbangan, meskipun terkadang ada yang harus berkorban."
+    hide antagonis default
     b "(Dia berbicara tentang keseimbangan, tetapi jelas ini hanyalah pembenaran untuk membiarkan ketidakadilan terus terjadi. Aku harus memilih kata-kataku dengan hati-hati.)"
     
     menu:
@@ -347,6 +367,8 @@ label start:
             pk "Menarik sekali, Pak Fazle . Anda berbicara seperti orang yang tidak pernah bekerja dengan anggaran besar atau tekanan investor. Apa Anda yakin bisa memahami kompleksitas masalah ini?"
             b "Saya mungkin belum pernah bekerja dengan investor besar, tapi saya bekerja dengan rakyat kecil setiap hari. Saya mendengar keluhan mereka, dan itu cukup untuk memahami bahwa sistem ini perlu diperbaiki, bukan dipertahankan."
             "Pendekatan diplomatis Fazle menarik perhatian beberapa anggota parlemen. Beberapa terlihat mengangguk setuju, meskipun ketegangan dengan pejabat korup itu tidak berkurang."
+            hide bima netral
+            hide antagonis default
 
         "Menyerang balik dengan mempertanyakan integritasnya.":
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
@@ -357,7 +379,7 @@ label start:
             pk "Pak Fazle , dunia ini tidak hanya hitam dan putih. Kalau Anda terus mendesak seperti ini, Anda akan menemukan banyak musuh. Apa Anda siap menghadapi itu."
             b "Jika membela rakyat kecil membuat saya punya banyak musuh, maka biarlah begitu. Saya lebih baik kalah dengan prinsip daripada menang dengan cara mengkhianati mereka yang mempercayakan suara mereka kepada saya."
             hide bima netral
-            hide antagonis default
+            hide antagonis marah
             "Pernyataan Fazle membuat ruangan menjadi sunyi. Beberapa anggota parlemen mulai memandangnya dengan kagum, sementara pejabat korup itu tersenyum tipis, menyembunyikan rasa tidak senangnya."
             show antagonis marah at Position(xpos=0.7, ypos=2.0) with dissolve
             pk "(Anak muda ini terlalu berani. Kita lihat sampai kapan dia bisa bertahan.)"
@@ -370,14 +392,17 @@ label start:
 
     # Scene 2 : Investigasi Lapangan - Menyusun Bukti
     play music flashbacks_bgm fadein 1.0
-    scene bg pabrik with fade  
+    scene bg pabrik with fade 
+    show buruh a at Position(xpos=0.3, ypos=2.0) with dissolve 
     ba "Pak Fazle, ini semua dokumen yang kami punya. Slip gaji, laporan jam kerja, dan foto kondisi tempat kerja kami. Tapi hati-hati, dokumen ini bisa membuat mereka marah jika mereka tahu kami yang menyerahkannya."
-    show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
+    show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
     b "Kalian sudah melakukan hal yang luar biasa. Saya akan memastikan bukti ini digunakan dengan hati-hati. Tidak ada yang akan tahu siapa yang memberikan ini."
+    hide buruh a
+    show psb at Position(xpos=0.3, ypos=2.0) with dissolve
     ah "Pak Fazle, kita punya cukup bukti untuk menekan parlemen. Tapi saya tahu para pejabat yang terkait pasti akan menyerang balik. Kita harus bersiap."
-    show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Saya tidak akan mundur. Saya akan membawa ini ke meja parlemen, apa pun risikonya."
     hide bima netral
+    hide psb
     "Dengan bukti di tangan, Fazle tahu langkah berikutnya adalah mempresentasikan kasus ini di parlemen. Namun, ia juga sadar bahwa musuhnya, terutama pejabat korup dan pengusaha besar, tidak akan tinggal diam."
 
     scene bg ruangkerjamalam with fade
@@ -409,6 +434,7 @@ label start:
             show antagonis default at Position(xpos=0.7, ypos=2.0) with dissolve
             pk "Tuduhan Anda terlalu berat untuk sesuatu yang Anda anggap 'ketidakadilan'. Hati-hati, Pak Fazle . Anda bisa melangkah terlalu jauh."
             hide bima netral
+            hide antagonis default
         "Menyerang balik dengan mempertanyakan integritasnya." :
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Keseimbangan? Apa yang Anda maksud dengan keseimbangan adalah memberikan kekuasaan mutlak kepada pengusaha dan membiarkan buruh menjadi korban? Kalau begitu, saya tidak ingin menjadi bagian dari keseimbangan itu."
@@ -425,29 +451,40 @@ label start:
     # Scene 3 : Munculnya Pengusaha Tamak
     play music main_menu_bgm fadein 1.0 loop
     scene bg bussiness_office with fade
+    show asisten penjahat at Position(xpos=0.3, ypos=2.0) with dissolve
     va "Pak, Anda mungkin ingin melihat ini. Anggota parlemen baru, Fazle, baru saja mempresentasikan bukti tentang pelanggaran di pabrik Anda dalam sidang tadi."
-    show pengusaha default at Position(xpos=0.3, ypos=2.0) with dissolve
+    show pengusaha default at Position(xpos=0.7, ypos=2.0) with dissolve
     eb "Fazle , ya? Anak baru yang penuh idealisme itu? Aku sudah mendengar tentangnya. Dia terlalu bersemangat untuk kebaikannya sendiri."
     va "Bukti yang dia tunjukkan cukup kuat, Pak. Jika ini terus berlanjut, reputasi Anda bisa terancam, dan kebijakan kita mungkin akan diblokir."
     eb "Hmph, aku tidak sampai di sini dengan membiarkan bocah seperti dia menghancurkan semuanya. Kita lihat apakah dia tetap idealis setelah diajak bicara. Hubungi orang-orang kita di parlemen dan atur pertemuan dengannya."
     hide pengusaha default
+    hide asisten penjahat
     "Pengusaha itu tahu bahwa mengabaikan ancaman seperti Fazle bisa berbahaya. Dia memutuskan untuk mengambil langkah langsung untuk mengontrol situasi."
     
 
     scene bg ruangkerjamalam with fade
     show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve 
     b "Halo, ini Fazle ."
+    show asisten penjahat at Position(xpos=0.7, ypos=2.0) with dissolve
     va "Pak Fazle, nama saya Indra. Saya asisten dari Pak Hardi, salah satu pemilik pabrik di kawasan industri yang Anda investigasi. Bos saya ingin bertemu dengan Anda untuk mendiskusikan laporan Anda."
     b "Pak Hardi? Saya tidak menyangka dia akan merespons secepat ini."
     va "Pak Hardi merasa bahwa ada kesalahpahaman yang perlu diluruskan. Dia ingin bertemu di kantornya besok malam. Ini akan menjadi pertemuan pribadi dan informal."
-    
+    hide bima netral
+    hide asisten penjahat
+
     menu :
         "Menerima undangan untuk bertemu langsung." :
+            show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Baik, saya akan datang. Tapi saya harap ini adalah diskusi terbuka dan jujur. Jika ada sesuatu yang perlu dijelaskan, saya ingin mendengarnya langsung."
+            show asisten penjahat at Position(xpos=0.7, ypos=2.0) with dissolve
             va "Tentu saja, Pak. Bos saya sangat menghormati posisi Anda."
+            hide bima netral
+            hide asisten penjahat
 
         "Menolak bertemu dan meminta semua komunikasi dilakukan secara resmi." :
+            show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Terima kasih atas undangannya, tapi saya rasa semua diskusi tentang isu ini harus dilakukan secara resmi. Saya tidak ingin ada yang disalahartikan."
+            show asisten penjahat at Position(xpos=0.7, ypos=2.0) with dissolve
             va "Saya mengerti, Pak. Tapi ini adalah kesempatan baik untuk menyelesaikan kesalahpahaman sebelum masalah ini menjadi lebih besar."
             b "Saya akan tetap pada pendirian saya. Jika Pak Hardi ingin berbicara, dia bisa menghadapi saya di parlemen atau melalui jalur resmi lainnya."
     hide bima netral
@@ -460,31 +497,44 @@ label start:
     show bima senang at Position(xpos=0.3, ypos=2.0) with dissolve
     b "Terima kasih atas undangannya, Pak. Saya di sini untuk memastikan bahwa kebenaran muncul dan keadilan ditegakkan. Saya harap diskusi ini bisa bermanfaat."
     h "Ah, keadilan, kata yang indah. Tapi, Anda harus tahu bahwa keadilan sering kali bersifat relatif, tergantung dari mana Anda melihatnya. Dunia ini penuh nuansa, Pak Fazle , bukan hitam putih seperti yang sering digambarkan."
+    hide pengusaha default
+    hide bima netral
 
     menu :
         "Tetap sopan dan mendengarkan argumen Hardi." :
+            show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Saya setuju bahwa dunia tidak selalu hitam dan putih, Pak. Namun, jika kita membiarkan prinsip keadilan menjadi terlalu fleksibel, kita berisiko mengabaikan mereka yang paling rentan."
+            show pengusaha default at Position(xpos=0.7, ypos=2.0) with dissolve
             h "Pernyataan yang bagus. Tapi izinkan saya bertanya: apa Anda tahu bagaimana sulitnya menjalankan bisnis di negeri ini? Pajak yang tinggi, regulasi yang tumpang tindih, tekanan dari investor. Semua itu memaksa pengusaha seperti saya untuk membuat keputusan yang, terkadang, tidak ideal."
             b "Keputusan tidak ideal yang Anda maksud, apakah itu termasuk pemotongan gaji buruh dan pelanggaran jam kerja?"
             h "Ah, saya lihat Anda datang dengan membawa tuduhan berat. Tapi percayalah, masalah ini sering kali disebabkan oleh manajemen di lapangan, bukan kebijakan saya. Saya tidak pernah berniat merugikan pekerja saya."
             b "Kalau begitu, saya harap Anda siap bekerja sama untuk memperbaiki masalah ini. Para buruh Anda berhak mendapatkan keadilan."
+            hide pengusaha default
+            hide bima netral
         
         "Langsung mempertanyakan integritas Hardi." :
+            show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Relatif atau tidak, keadilan tetaplah keadilan, Pak. Apa yang terjadi di pabrik Anda adalah pelanggaran nyata terhadap hukum dan hak asasi manusia. Jika Anda tahu tentang ini, Anda seharusnya bertindak lebih cepat."
+            show pengusaha default at Position(xpos=0.7, ypos=2.0) with dissolve
             h "Hati-hati dengan tuduhan Anda, Pak Fazle . Saya menghormati posisi Anda, tetapi saya tidak akan menerima fitnah tanpa dasar."
             b "Ini bukan fitnah. Saya punya bukti yang menunjukkan pemotongan gaji ilegal, pelanggaran jam kerja, dan kondisi kerja yang tidak aman. Semua ini terjadi di pabrik Anda."
             h "Kalau begitu, mari kita selidiki bersama. Saya akan membentuk tim internal untuk menyelesaikan ini. Tapi, Anda juga harus memahami bahwa kesalahan seperti ini sering kali berasal dari manajemen tingkat bawah."
             b "Saya akan menunggu hasil investigasi Anda, tapi saya tidak akan tinggal diam jika masalah ini tidak segera ditangani."
+            hide pengusaha default
+            hide bima netral
     
+    show pengusaha default at Position(xpos=0.3, ypos=2.0) with dissolve
     h "Pak Fazle, izinkan saya berbicara jujur. Anda adalah orang baru di dunia politik, penuh dengan semangat dan idealisme. Itu bagus. Tapi Anda juga harus belajar bahwa dunia ini tidak berjalan hanya dengan moral. Kadang kita harus berkompromi."
-
+    
     menu :
         "Menyatakan bahwa prinsip lebih penting daripada kompromi." :
+            show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
             b "Mungkin Anda benar bahwa kompromi penting dalam beberapa hal. Tapi untuk pelanggaran hak asasi manusia, saya tidak akan pernah berkompromi. Keadilan adalah hal yang tidak bisa ditawar."
             h "Pendekatan seperti itu mungkin ideal, tapi tidak realistis. Jika Anda terus bertahan dengan pandangan itu, Anda akan menghadapi lebih banyak musuh daripada teman di dunia ini."
             b "Kalau mempertahankan prinsip membuat saya punya lebih banyak musuh, maka itu risiko yang saya terima. Lebih baik saya kalah dengan integritas daripada menang dengan mengkhianati rakyat."
         
         "Mengakui bahwa kompromi kadang diperlukan, tetapi tidak untuk melanggar hak asasi." :
+            show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
             b "Saya paham bahwa kompromi kadang diperlukan, Pak. Tapi saya tidak percaya bahwa kompromi bisa menjadi alasan untuk melanggar hak asasi manusia. Ada batasan yang tidak boleh dilanggar."
             h "Batasan, ya? Kalau begitu, izinkan saya menanyakan ini: apa batasan Anda? Apa Anda siap kehilangan dukungan politik hanya karena Anda tidak mau sedikit melonggarkan prinsip Anda?"
             b "Kalau prinsip saya harus dilonggarkan untuk mendukung ketidakadilan, maka saya lebih baik kehilangan dukungan itu."
@@ -493,13 +543,17 @@ label start:
 
     menu :
         "Menghadapi ancaman Hardi dengan tegas." :
+            show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
             b "Kalau memperjuangkan rakyat berarti melawan sistem, maka itu yang akan saya lakukan. Saya tidak takut pada ancaman Anda, Pak Hardi."
             h "Baiklah, kita lihat sampai kapan idealisme Anda bisa bertahan. Tapi jangan bilang saya tidak memperingatkan Anda."
 
         "Memanfaatkan situasi untuk mendapatkan lebih banyak informasi." :
+            show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
             b "Saya paham risikonya, Pak. Tapi saya ingin tahu lebih banyak. Siapa saja yang terlibat dalam sistem ini? Jika saya mengerti, mungkin kita bisa mencari jalan keluar bersama."
             h "Saya suka pendekatan Anda. Tapi saya tidak begitu percaya pada niat Anda. Mari kita lihat apakah tindakan Anda sesuai dengan kata-kata Anda."
     
+    hide pengusaha default
+    hide bima netral
     "Pertemuan itu berakhir dengan ketegangan yang belum terselesaikan. Fazle meninggalkan kantor Hardi dengan tekad yang semakin kuat, sementara Hardi merencanakan langkah balasan untuk menghentikannya. Perjuangan ini baru dimulai."
     stop music fadeout 1.0
 
@@ -566,6 +620,8 @@ label start:
         "Menjawab dengan tenang dan berfokus pada data." :
             b "Saya memahami kekhawatiran Anda, Pak Herman. Tapi data ini tidak hanya berdasarkan kesaksian. Kami memiliki catatan jam kerja, slip gaji, dan foto-foto kondisi kerja di lapangan yang mendukung temuan kami."
             pk "Itu menarik, tapi kita harus melihat semua ini dengan skeptis. Tidak ada jaminan bahwa data ini tidak dimanipulasi oleh pihak-pihak yang memiliki agenda politik."
+            hide bima netral
+            hide antagonis default
             "Pendekatan tenang Fazle tidak cukup untuk menghentikan keraguan yang telah ditanamkan oleh Pejabat Korup. Beberapa anggota parlemen mulai terlihat ragu."
         
         "Langsung menyerang balik dengan mempertanyakan integritas Pejabat Korup." :
@@ -574,6 +630,7 @@ label start:
             show antagonis marah at Position(xpos=0.3, ypos=2.0)
             pk "Hati-hati dengan kata-kata Anda, Pak Fazle. Tuduhan tanpa bukti hanya akan merusak kredibilitas Anda sendiri."
             hide antagonis marah
+            hide bima netral
             "Serangan Fazle berhasil memancing reaksi keras dari Pejabat Korup, tetapi juga membuat suasana semakin panas. Beberapa anggota parlemen mulai merasa tidak nyaman dengan eskalasi ini."
     hide antagonis default
 
@@ -588,6 +645,8 @@ label start:
         "Mencoba menekan Hardi dengan menunjukkan lebih banyak bukti." :
             b "Ini bukan hanya laporan. Ini adalah slip gaji yang menunjukkan pemotongan langsung. Ini adalah catatan jam kerja yang melanggar undang-undang ketenagakerjaan."
             h "Semua itu bisa saja dipalsukan, Pak Fazle. Dan saya tidak akan tinggal diam melihat nama saya dicemarkan seperti ini!"
+            hide bima netral
+            hide pengusaha default
             "Serangan balik Hardi, didukung oleh keraguan yang ditanamkan oleh Pejabat Korup, membuat banyak anggota parlemen mulai meragukan keabsahan data Fazle ."
 
         "Meminta buruh untuk berbicara langsung sebagai saksi." :
@@ -615,11 +674,11 @@ label start:
     "Setelah kekalahan di parlemen, Fazle merenung. Kekuasaan dan kelicikan musuh-musuhnya telah membuat perjuangannya terlihat sia-sia. Namun, di tengah kegelapan itu, ia menyadari satu hal: untuk melawan sistem yang korup, ia membutuhkan bukti yang tak terbantahkan, sesuatu yang tidak bisa disangkal oleh siapa pun."
 
     # Diskusi dengan Tim Pendukung
-    show aktivis ham at Position(xpos=0.3, ypos=2.0) with dissolve
+    show buruh c at Position(xpos=0.3, ypos=2.0) with dissolve
     ah "Pak Fazle, saya tahu kekalahan ini sulit diterima. Tapi kita masih punya peluang. Jika kita bisa menemukan sesuatu yang lebih besar, sesuatu yang benar-benar mengejutkan, mereka tidak akan bisa menghindar lagi."
     show bima netral at Position(xpos=0.8, ypos=2.0) with dissolve
     b "Kita butuh bukti yang tidak bisa dibantah. Bukan hanya soal pelanggaran buruh, tapi sesuatu yang mengungkap korupsi dan kejahatan mereka yang sebenarnya."
-    hide aktivis ham
+    hide buruh c
     show wartawan default at Position(xpos=0.3, ypos=2.0) with dissolve
     wi "Saya dengar ada desas-desus tentang aktivitas ilegal di salah satu pabrik milik Hardi. Beberapa mantan pekerja mengatakan bahwa ada aliran uang gelap dan perdagangan ilegal yang melibatkan perusahaan itu."
     b "Jika itu benar, maka ini adalah kunci kita. Tapi kita harus bertindak hati-hati. Jika mereka tahu kita menyelidiki ini, mereka tidak akan segan-segan menyerang balik."
@@ -642,23 +701,32 @@ label start:
     b "Pengiriman khusus? Apa Anda tahu kapan atau di mana itu terjadi?"
     mp "Biasanya di gudang belakang, setelah jam kerja. Tapi saya tidak pernah melihatnya langsung. Saya hanya mendengar desas-desus dari teman-teman."
     hide mantan pekerja
-    show aktivis ham at Position(xpos=0.3, ypos=2.0) with dissolve
+    show buruh c at Position(xpos=0.3, ypos=2.0) with dissolve
     ah "Itu bisa jadi sesuatu. Jika kita bisa mengamati pengiriman itu, kita mungkin bisa menemukan sesuatu yang besar."
+    hide bima netral
+    hide buruh c
 
     # Operasi Pengintaian
     "Dengan informasi baru, Fazle dan timnya memutuskan untuk melakukan pengintaian di pabrik Hardi. Mereka harus bertindak cepat, tetapi juga berhati-hati untuk tidak menarik perhatian."
     scene bg trukmelaju with dissolve
+    show buruh c at Position(xpos=0.3, ypos=2.0) with dissolve
     ah "Lihat itu. Ada truk besar yang keluar dari gudang belakang. Tidak ada tanda pengiriman resmi di kendaraan itu."
+    show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
     b "Kita harus tahu ke mana mereka membawa barang ini. Kita ikuti, tapi jangan sampai mereka menyadari kita."
-
+    
     menu :
         "Mengikuti truk dari kejauhan untuk mencari tujuan pengiriman." :
+            hide bima netral
             "Mereka mengikuti truk hingga tiba di sebuah gudang terpencil di pinggir kota. Di sana, mereka melihat aktivitas mencurigakan: beberapa pria memindahkan kotak-kotak besar ke dalam gudang."
+            show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Kita harus tahu apa isi kotak-kotak itu. Kalau ini barang ilegal, kita punya bukti yang kita cari."
         
         "Menyusup ke dalam pabrik untuk melihat barang apa yang dikirimkan." :
+            hide bima netral
             "Menyusup ke dalam pabrik adalah langkah berisiko, tetapi juga memberikan kesempatan untuk melihat langsung apa yang sedang terjadi di sana."
+            show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Lihat itu. Kotak-kotak ini tidak memiliki tanda resmi. Apa mungkin ini barang ilegal?"
+            show buruh c at Position(xpos=0.7, ypos=2.0) with dissolve
             ah "Kita harus memotret ini. Kalau kita bisa membawa ini ke media, mereka tidak akan bisa menyangkalnya."
     hide aktivis ham
     hide bima netral
@@ -666,7 +734,7 @@ label start:
     # Penemuan Barang Ilegal
     scene bg gudang with dissolve
     "Fazle dan timnya memasuki gudang dengan hati-hati. Mereka menyadari bahwa apa pun yang disembunyikan di sini, itu bukan sesuatu yang ingin diketahui publik."
-    show aktivis ham at Position(xpos=0.3, ypos=2.0) with dissolve
+    show buruh c at Position(xpos=0.3, ypos=2.0) with dissolve
     ah "Pak Fazle, lihat tanda di kotak itu. Itu bukan logo perusahaan resmi. Apa ini mungkin barang selundupan?"
     show bima netral at Position(xpos=0.8, ypos=2.0) with dissolve
     b "Hanya ada satu cara untuk tahu pasti. Kita harus membuka salah satu kotak ini."
@@ -674,19 +742,25 @@ label start:
     menu :
         "Membuka kotak dengan hati-hati tanpa meninggalkan jejak." :
             scene bg kotakberisibarangilegal with dissolve
+            show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Lihat ini. Barang elektronik mahal? Ini tidak tercatat dalam inventaris resmi perusahaan."
+            show buruh c at Position(xpos=0.7, ypos=2.0) with dissolve
             ah "Barang elektronik seperti ini seharusnya diimpor dengan izin tertentu. Jika ini ilegal, maka ini adalah bukti kuat."
         
         "Mengambil risiko dengan memecahkan segel untuk melihat isinya lebih cepat." :
             scene bg gudangmalam with dissolve
+            show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Ini lebih dari sekadar selundupan. Lihat dokumen ini. Ada catatan transaksi rahasia, dengan tanda tangan yang menghubungkan Hardi langsung ke jaringan ini."
+            show buruh c at Position(xpos=0.7, ypos=2.0) with dissolve
             ah "Itu tanda tangan pejabat! Mereka menggunakan pabrik ini untuk menutupi kegiatan ilegal!"
     
     # Penemuan yang Mengejutkan
+    show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
+    show buruh c at Position(xpos=0.7, ypos=2.0) with dissolve
     b "Ini bukan hanya masalah selundupan barang. Ini adalah korupsi besar-besaran. Mereka menggunakan pabrik ini sebagai kedok untuk mengalihkan uang gelap."
     ah "Jika kita bisa membawa dokumen ini ke publik, ini akan menghancurkan mereka. Tapi kita harus berhati-hati. Mereka pasti tidak akan tinggal diam."
-    hide aktivis ham
-    show buruh a at Position(xpos=0.3, ypos=2.0) with dissolve
+    hide buruh c
+    show buruh a at Position(xpos=0.7, ypos=2.0) with dissolve
     ba "Pak, saya tahu tempat lain di gudang ini. Kadang-kadang ada kotak dengan bahan kimia yang sangat dijaga. Mungkin itu juga terkait."
     b "Kalau begitu, kita harus mencari kotak itu juga. Kalau mereka menyelundupkan bahan kimia tanpa izin, ini akan jadi bukti tambahan."
     hide buruh a
@@ -694,11 +768,11 @@ label start:
 
     # Penemuan Barang Berbahaya
     scene bg bahankimia with dissolve
-    show aktivis ham at Position(xpos=0.3, ypos=2.0) with dissolve
+    show buruh c at Position(xpos=0.3, ypos=2.0) with dissolve
     ah "Apa ini? Bahan kimia seperti ini seharusnya tidak ada di pabrik biasa. Ini bisa sangat berbahaya."
-    show bima netral at Position(xpos=0.8, ypos=2.0) with dissolve
+    show bima netral at Position(xpos=0.7, ypos=2.0) with dissolve
     b "Ini lebih buruk dari yang saya kira. Mereka tidak hanya menyelundupkan barang ilegal, tapi juga membahayakan keselamatan pekerja dan lingkungan."
-    hide aktivis ham
+    hide buruh c
     hide bima netral
     show buruh a at Position(xpos=0.3, ypos=2.0) with dissolve
     ba "Pak, kita harus pergi sekarang. Kalau penjaga tahu kita di sini, kita tidak akan bisa keluar."
@@ -711,7 +785,7 @@ label start:
         "Mengambil risiko untuk mencari lebih banyak bukti." :
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Ini dia. Lihat isi kotak ini. Barang mewah dan obat-obatan? Ini jelas penyelundupan besar."
-            show aktivis ham at Position(xpos=0.8, ypos=2.0) with dissolve
+            show buruh c at Position(xpos=0.7, ypos=2.0) with dissolve
             ah "Ini cukup untuk menghancurkan mereka. Tapi penjaga akan segera tahu kita di sini. Kita harus pergi sekarang!"
             "Meskipun berisiko, keputusan Fazle untuk mencari lebih banyak bukti memberikan keunggulan strategis. Dengan data yang lebih lengkap, ia kini memiliki kekuatan untuk melawan musuh-musuhnya."
     hide buruh a
@@ -763,7 +837,10 @@ label start:
             scene bg ruangkerjapagi with fade
             show bima netral at Position(xpos=0.3, ypos=2.0) with dissolve
             b "Saya tahu mereka akan mencoba membalas. Kita harus segera membawa bukti ini ke pihak berwenang sebelum opini publik diputarbalikkan. Hukum harus mendahului propaganda mereka."
+            show mantan pekerja at Position(xpos=0.7, ypos=2.0) with dissolve
             mp "Pak Fazle, kami akan bekerja untuk memastikan tidak ada celah yang bisa dimanfaatkan."
+            hide mantan pekerja
+            hide bima netral
             "Fazle membawa bukti-bukti itu langsung ke KPK dan media nasional untuk memastikan langkah hukumnya tidak dapat diganggu."
 
         "Membangun aliansi dengan media independen untuk melawan propaganda":
@@ -772,6 +849,8 @@ label start:
             b "Mereka mungkin punya media besar, tapi kita punya kebenaran di pihak kita. Kita bekerja dengan media independen untuk memastikan rakyat tahu apa yang sebenarnya terjadi."
             show wartawan default at Position(xpos=0.8, ypos=2.0) with dissolve
             wi "Kami akan membantu Anda, Pak Fazle. Tapi ini akan menjadi perang panjang, dan kami juga akan menjadi target."
+            hide bima netral
+            hide wartawan default
             "Media independen mulai mempublikasikan bukti Fazle secara luas. Meski mendapat tekanan besar, kebenaran perlahan mulai mencuat."
     stop music
 
@@ -785,15 +864,20 @@ label start:
     menu :
         "Fokus pada bukti dan data yang tidak dapat dibantah." :
             b "Berikut adalah catatan transaksi yang menghubungkan pengusaha dan pejabat tertentu, serta foto-foto barang selundupan dari pabrik. Semua ini telah diverifikasi oleh pihak ketiga."
+            hide bima netral
             "Pendekatan profesional Fazle membuat sebagian anggota parlemen mulai mempertimbangkan untuk mendukungnya. Namun, beberapa masih skeptis."
+            stop music fadeout 1.0
             jump goodending
         
         "Menyerang langsung integritas para pelaku di depan sidang." :
             b "Pejabat seperti Anda, Pak Herman, tidak bisa lagi berlindung di balik kekuasaan. Bukti ini menunjukkan jelas keterlibatan Anda dalam jaringan korupsi. Saya menantang Anda untuk membuktikan sebaliknya."
+            hide bima netral
             "Pendekatan agresif Fazle membuat suasana sidang memanas. Beberapa anggota parlemen mendukung, tetapi ada yang merasa cara ini terlalu berisiko."
-    hide bima netral
+            jump goodending
+    
             
 label goodending :
+    play music suarakebebasan fadein 3.0
     "Hakim mengetuk palu, memutuskan Hardi dan Pejabat Korup bersalah."
     "Dan undang-undang yang baru kemudian disahkan."
     jump endscene
