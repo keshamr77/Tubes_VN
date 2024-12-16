@@ -287,12 +287,11 @@ style quick_button_text:
 
 screen navigation():
     if renpy.get_screen("main_menu"):
-        vbox:
+        hbox:
             style_prefix "hnavigation"
 
-            xpos gui.navigation_xpos
-            xoffset 100
-            yalign 0.5
+            xalign 0.5
+            yalign 0.9
 
             spacing gui.navigation_spacing
 
