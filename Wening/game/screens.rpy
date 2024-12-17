@@ -219,7 +219,7 @@ style choice_button_text is button_text
 
 style choice_vbox:
     xalign 0.5
-    ypos 405
+    ypos 770
     yanchor 0.5
 
     spacing gui.choice_spacing
@@ -286,53 +286,97 @@ style quick_button_text:
 ## to other menus, and to start the game.
 
 screen navigation():
+    if renpy.get_screen("main_menu"):
+        hbox:
+            style_prefix "hnavigation"
 
-    vbox:
-        style_prefix "navigation"
+            xalign 0.5
+            yalign 0.9
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+            spacing gui.navigation_spacing
 
-        spacing gui.navigation_spacing
+            if main_menu:
 
-        if main_menu:
+                textbutton _("Start") action Start()
 
-            textbutton _("Start") action Start()
+            else:
 
-        else:
+                textbutton _("History") action ShowMenu("history")
 
-            textbutton _("History") action ShowMenu("history")
+                textbutton _("Save") action ShowMenu("save")
 
-            textbutton _("Save") action ShowMenu("save")
+            textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Load") action ShowMenu("load")
+            textbutton _("Options") action ShowMenu("preferences")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+            if _in_replay:
 
-        if _in_replay:
+                textbutton _("End Replay") action EndReplay(confirm=True)
 
-            textbutton _("End Replay") action EndReplay(confirm=True)
+            elif not main_menu:
 
-        elif not main_menu:
+                textbutton _("Main Menu") action MainMenu()
 
-            textbutton _("Main Menu") action MainMenu()
+            textbutton _("Credits") action ShowMenu("about")
 
-        textbutton _("About") action ShowMenu("about")
+            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+                ## Help isn't necessary or relevant to mobile devices.
+                textbutton _("Help") action ShowMenu("help")
 
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            if renpy.variant("pc"):
 
-        if renpy.variant("pc"):
+                ## The quit button is banned on iOS and unnecessary on Android and
+                ## Web.
+                textbutton _("Quit") action Quit(confirm=not main_menu)
+    else:
+        vbox:
+            style_prefix "navigation"
 
-            ## The quit button is banned on iOS and unnecessary on Android and
-            ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            xpos gui.navigation_xpos
+            yalign 0.5
 
+            spacing gui.navigation_spacing
+
+            if main_menu:
+
+                textbutton _("Start") action Start()
+
+            else:
+
+                textbutton _("History") action ShowMenu("history")
+
+                textbutton _("Save") action ShowMenu("save")
+
+            textbutton _("Load") action ShowMenu("load")
+
+            textbutton _("Options") action ShowMenu("preferences")
+
+            if _in_replay:
+
+                textbutton _("End Replay") action EndReplay(confirm=True)
+
+            elif not main_menu:
+
+                textbutton _("Main Menu") action MainMenu()
+
+            textbutton _("Credits") action ShowMenu("about")
+
+            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+
+                ## Help isn't necessary or relevant to mobile devices.
+                textbutton _("Help") action ShowMenu("help")
+
+            if renpy.variant("pc"):
+
+                ## The quit button is banned on iOS and unnecessary on Android and
+                ## Web.
+                textbutton _("Quit") action Quit(confirm=not main_menu)
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
+style hnavigation_button is navigation_button
+style hnavigation_button_text is navigation_button_text
 
 style navigation_button:
     size_group "navigation"
@@ -340,7 +384,10 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
+    xalign 0.5
 
+style hnavigation_button_text:
+    xalign 0.5
 
 ## Main Menu screen ############################################################
 ##
@@ -385,7 +432,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    #background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -550,7 +597,7 @@ screen about():
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("About"), scroll="viewport"):
+    use game_menu(_("Credits"), scroll="viewport"):
 
         style_prefix "about"
 
@@ -559,11 +606,48 @@ screen about():
             label "[config.name!t]"
             text _("Version [config.version!t]\n")
 
+
+            label "Made by:"
+            text "Nabil Savaraz as Project Manager"
+            text ""
+            text "Naufal Fakhri F. as Game Designer #1"
+            text ""
+            text "M. Afief Atha as Game Designer #2"
+            text ""
+            text "Al Rafi Fazle M. W. as Script Writer #1"
+            text ""
+            text "Genia L. Kinsky as Script Writer #2"
+            text ""
+            text "Aaliyah G. Lestari as Illustrator #1"
+            text ""
+            text "Keisha J. Kristiandhi as Illustrator #2"
+            text ""
+            text "Aufar as Illustrator #3"
+            text ""
+            text "Kesha M. Ramadhan as Programmer #1"
+            text ""
+            text "Fajri Adam as Programmer #2"
+            text ""
+            text "M. Farrel Adivia S. as Programmer #3"
+            text ""
+            text "I Putu Bagus Dharma A. as UI/UX Designer"
+            text ""
+            text "Nafhan Hadiyan as Sound Composer"
+            text ""
+            text "Maritza Aliciaputri as Publication"
+            text ""
+            text "Halawah Faza Anakta M. as Quality Tester #1"
+            text ""
+            text "Nasywa Ayesha Budiman as Quality Tester #2"
+            text ""
+
             ## gui.about is usually set in options.rpy.
             if gui.about:
                 text "[gui.about!t]\n"
 
             text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+
+
 
 
 style about_label is gui_label
@@ -731,7 +815,7 @@ screen preferences():
 
     tag menu
 
-    use game_menu(_("Preferences"), scroll="viewport"):
+    use game_menu(_("Options"), scroll="viewport"):
 
         vbox:
 
